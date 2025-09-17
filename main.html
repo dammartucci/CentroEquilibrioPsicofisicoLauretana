@@ -8,11 +8,12 @@
         other languages, and emojis. HTML5 supports it -->
 		<meta charset="utf-8"> 
 		
-		 <!--fundamental to ensure that mobile devices screens render the website appropriately, 
-		     avoiding zooming out so that the page looks “tiny but complete”.-->
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<!--this webpage borrows primitive resources from Bootstrap 4. Associated dependencies need to be loaded-->
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		
 		<!-- the file containing the custom styling of this page -->
@@ -42,7 +43,7 @@
 			</nav>
 		</header>
 		
-		<div id="header-area" class="header-text">
+		<div id="hero-screen" class="parallax-container">
 		    <h1>Equilibrio</h1>
 			<p>Sblocca le tue potenzialità riunendo corpo e mente</p>
 		</div>
@@ -50,7 +51,7 @@
 		<div id="about-us" class="common-container">
 		    <div class="row">
 			    <div class="col-sm-5 text-align-center-left">
-		            <h2><br>Ti va di riscoprire quella piacevole sensazione di padronanza e leggerezza, sia fisica che mentale?</h2>
+		            <h2 class="add-med-vert-spacing">Ti va di riscoprire quella piacevole sensazione di padronanza e leggerezza, sia fisica che mentale?</h2>
 				</div>
 				
 				<div class="col-sm-7 text-align-center-left">
@@ -72,16 +73,18 @@
 				<div class="col-lg-6">
 					<div class="common-overlaid-container add-min-spacing">
 					    <img class="img-fluid" src="assets/images/places/place[0].jpg">
-					    <p>
-						   <br>La sede II, situata nel cuore di Roma.<br>
-						   Una palestra larga e ariosa, perfetta per fare nuove conoscenze.
+					    <p class="add-med-vert-spacing">
+						   La sede II, situata a Saracinesco.<br>
+						   Un luogo largo e arioso, perfetto per fare nuove conoscenze.
 						</p>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="common-overlaid-container add-min-spacing">
 					    <img class="img-fluid" src="assets/images/places/place[1].jpg">
-					    <p><br>Un esempio di lezione Feldenkrais di gruppo. L'insegnante dà istruzioni dettagliate sulle posture da assumere.</p>
+					    <p class="add-med-vert-spacing">
+						    Un esempio di lezione Feldenkrais di gruppo. L'insegnante dà istruzioni dettagliate sulle posizioni da assumere.
+						</p>
 					</div>
 				</div>
 			</div>	
@@ -90,8 +93,8 @@
 		<div class="common-container"></div>
 		
 		<div id="faqs" class="common-container">
-		    <h2>Di che cosa parli esattamente?<br></h2>
-		    <p>
+		    <h2>Di che cosa parli esattamente?</h2>
+		    <p class="add-min-vert-spacing">
 		      Se vuoi iniziare oggi stesso il percorso per cambiare la tua vita, dai uno sguardo qui!<br> 
 			  Abbiamo raccolto una lista di domande più comuni, fatte direttamente a Lauretana.<br>
 		    </p>
@@ -204,7 +207,7 @@
 		
 		<div id="testimonials" class="common-container">
 		    <h2>Testimoni</h2>
-			<p>
+			<p class="add-min-vert-spacing">
 			Ora, dai un'occhiata a come il Metodo ha cambiato la vita alle persone!<br>
 			Di seguito le loro parole, curate dallo staff.
 			</p>
@@ -372,7 +375,7 @@
 	
 	<!--all the scripts have been appended at the end, because if page loading, that is sequential, is not complete they will fail.-->	
 	
-	<!--here the script to handle the expandable-container expansion/collapse-->
+	<!--HANDLE THE EXPANDABLE-CONTAINER EXPANSION/COLLAPSE-->
 	<script>
 		const items = document.querySelectorAll('.expandable-container');
 			items.forEach(item => { 
@@ -382,7 +385,7 @@
 			});
 	</script>
 	
-	<!--here the script handling the text preview generation for objects belonging to expandable-container-preview class, 
+	<!--HANDLE THE TEXT PREVIEW GENERATION FOR OBJECTS BELONGING TO EXPANDABLE-CONTAINER-PREVIEW CLASS, 
 	that i consider an extension (in java sense) of expandable-container. 
 	Parent container must be selected and its class edited to temporarily alter the bootstrap grid alignment -->
 	<script>		    
@@ -425,7 +428,7 @@
 			});
 	</script>
 	
-	<!--here the script to handle location switching on google maps iframe: hardwired on two cases only-->
+	<!--HANDLE LOCATION SWITCHING ON GOOGLE MAPS IFRAME: hardwired on two cases only-->
 	<script>
 		let frame = document.getElementById('locations');
 		let label = document.getElementById('locations-name');
@@ -438,7 +441,7 @@
 			if(switchplace){
 				switchplace = false;
 				frame.setAttribute('src',"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.7236074043435!2d12.948246675368924!3d42.00620695738483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f9afbdd4fa15d%3A0xc5aff1f279225028!2sLocalit%C3%A0%20Macchiole%2C%201%2C%2000020%20Macchiole%20RM!5e0!3m2!1sen!2sit!4v1757720275993!5m2!1sen!2sit");
-				label.innerHTML = 'Sede I: Saracinesco RM<br>(attività di gruppo)';
+				label.innerHTML = 'Sede I: Saracinesco RM<br>(attività individuali e di gruppo)';
 			}
 			else{
 				switchplace = true;
@@ -453,14 +456,14 @@
 		next.addEventListener('click',switching);			
 	</script>
 	
-	<!--here the script to handle form submission to a server accepting js generated emails-->
+	<!--HANDLE FORM SUBMISSION TO A SERVER ACCEPTING JS GENERATED EMAILS (i use emailjs)-->
 	<!--script>
 	
 	</script-->
 	
 	<!--FUNCTIONS TO HANDLE MAIN MENU NAVIGATION-->
 	 
-	<!--this script associates buttons to their correspondant functions-->
+	<!--associate buttons to their correspondant functions-->
 	<script>
 	    document.getElementById("main-button").addEventListener('click',() =>
 			{window.location.href="main.html"}
@@ -481,7 +484,7 @@
 		);
 	</script>
 	
-	<!--manage the 'jolly-button' functionality and dynamic menu resizing-->
+	<!--manage separately the 'jolly-button' and dynamic menu resizing-->
 	<script>
 		let documentStyles = getComputedStyle(document.documentElement);
 		let criticalWidth  = parseInt(documentStyles.getPropertyValue('--menu-requires-overflow-list').trim());
