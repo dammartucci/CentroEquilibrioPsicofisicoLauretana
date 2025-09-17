@@ -10,6 +10,12 @@
 	color: white;
 	text-align: center;
 }
+@media (max-width: 576px) {      /*necessary,else everything gets squeezed*/
+  .common-container {
+    padding: 30px 8px 30px 8px;  /* reduce left/right padding */
+    font-size: 15px; /* optional: slightly smaller text */
+  }
+}
 
 .common-overlaid-container{
 	background: rgba(255,255,255,.30);
@@ -183,4 +189,5 @@
 }*/
 .expandable-container.clicked .expandable-container-text{
     display: block;
+
 }
