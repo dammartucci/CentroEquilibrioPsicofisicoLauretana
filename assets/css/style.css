@@ -2,7 +2,7 @@
 .common-container{
     /* background: linear-gradient(90deg,#7474bf,#348ac7); */
 	background: linear-gradient(90deg,#6987C0,#2F8F2E);
-	padding: 30px 80px 30px 80px;
+	padding: 30px 60px 30px 60px;
 	
 	src: url('assets/fonts/DokChampa.ttf') format('ttf');  /*not every machine possesses this font*/
 	font-family: DokChampa;
@@ -10,7 +10,8 @@
 	color: white;
 	text-align: center;
 }
-@media (max-width: 576px) {      /*necessary,else everything gets squeezed*/
+
+@media (max-width: 768px) {      /*necessary,else everything gets squeezed*/
   .common-container {
     padding: 30px 8px 30px 8px;  /* reduce left/right padding */
     font-size: 15px; /* optional: slightly smaller text */
@@ -145,10 +146,18 @@
 	
 	z-index: 100;
 	min-height: 80px;
-	-webkit-transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;
-	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;	
+}
+
+.overflow-list{
+	position: fixed;
+	top: 130px;
+	left: 30px;
+	right: 30px;
+}
+
+:root{
+	--menu-requires-overflow-list: 1024;	
+	--menu-can-be-restored-properly: 1016;
 }
 
 .menu-main-button{
@@ -189,5 +198,4 @@
 }*/
 .expandable-container.clicked .expandable-container-text{
     display: block;
-
 }
