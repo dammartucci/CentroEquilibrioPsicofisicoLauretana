@@ -45,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    gap: 5px;	
+    gap: 5px;
 	font-weight: bold;
 }
 
@@ -107,7 +107,7 @@
 }
 
 
-/*styling for the upper main menu*/
+/*UPPER MAIN MENU AND ASSOCIATED OVERFLOW LIST*/
 .common-menu-button{
 	border-radius: 40px;
     padding: 20px;
@@ -118,7 +118,7 @@
 }
 .common-menu-button:hover{
 	background: #b0b0fb;	
-	box-shadow: 0 12px 12px rgba(0,0,0,.3);
+	box-shadow: 0 10px 10px rgba(0,0,0,.3);
 }
 
 .common-menu img{   /*tells what to do if there's an image inside*/
@@ -160,20 +160,22 @@
 	--menu-can-be-restored-properly: 1016;
 }
 
-.menu-main-button{
+.menu-main-button{          /*the title is a link, and an html button is used, not an anchor*/
 	font-size: 16px;
 	font-weight: bold;
 	background: none;
 	border: none;
 }
 
-/*styling for the header area text*/
+/*HERO SCREEN AND PARALLAX*/
+.parallax-container{
+
+}
 
 
+/*ELEMENTS WITH EXPANDABLE CONTENTS*/
 
-/*styling for the faqs*/
-
-.expandable-container{}
+.expandable-container{}                 /*no definition so far. just to be used by js querySelector*/
 
 .expandable-container-title{
 	cursor: pointer;
@@ -192,10 +194,22 @@
 }
 
 
-    /*behaviour after a click*/
+/*behaviour after a click*/
 /*.expandable-container.clicked .expandable-container-title::after{
     transform: rotate(45deg);
 }*/
 .expandable-container.clicked .expandable-container-text{
     display: block;
+}
+
+/*DYNAMIC LOADING OF CONTENTS*/
+
+.spawn-item{
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.spawn-item.observed{
+	opacity: 1;
+	transform: translateY(0);
 }
