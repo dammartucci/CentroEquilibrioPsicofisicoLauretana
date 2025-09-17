@@ -386,7 +386,7 @@
 			    let parent            = cont.parentElement;
 				let originalClassList = [...parent.classList];    //copy each value of the original list into an array: spread operator
 				
-				let text = cont.querySelector('.expandable-container-text').getInnerHTML().replace(/\n|\t/g,"").substring(0,100)+"...";  //html indentation can introduce these unwanted characters
+				let text = cont.querySelector('.expandable-container-text').innerHTML.replace(/\n|\t/g,"").substring(0,100)+"...";  //html indentation can introduce these unwanted characters
 				let p    = document.createElement('p');           //create a paragraph to include the preview text
 				p.textContent = text;
 				let title = cont.querySelector('.expandable-container-title');
@@ -472,4 +472,5 @@
 		);
 	</script>
 	
+
 </html>
