@@ -29,13 +29,16 @@
 			        <img class="logo" src="assets/images/logo.png">
 				    <button id="main-button" class="menu-main-button">Centro Equilibrio Psicofisico di Lauretana</button>
 				</div>
-				<button id="events-button" class="common-container common-menu-button">Eventi</button>
-				<button id="about-us-button" class="common-container common-menu-button">Chi siamo</button>
-				<button id="contact-us-button" class="common-container common-menu-button">Contatti</button>
-				<button id="history-button" class="common-container common-menu-button">Storia</button>
-				<!--<button class="common-container common-button">Eventi</button>-->
+				<div id="menu-buttons">
+					<button id="events-button"     class="common-container common-menu-button">Eventi</button>
+					<button id="about-us-button"   class="common-container common-menu-button">Chi siamo</button>
+					<button id="contact-us-button" class="common-container common-menu-button">Contatti</button>
+					<button id="history-button"    class="common-container common-menu-button">Storia</button>
+					<!--<button class="common-container common-button">Eventi</button>-->
+			    </div>
 				
 				<button id="website-button" class="common-container common-button put-on-right-side">Home</button>
+				</div>
 			</nav>
 		</header>
 		
@@ -208,7 +211,7 @@
 				<!--the following containers can't be simply distanced using margin on each one, cause the layout breaks.
 				This happens in Bootstrap 4 and even 5. The only solution is to wrap them in other divs that are used by 
 				Bootstrap as items to display and apply the spacing in the nested div-->
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Antonio</h3>
@@ -227,7 +230,7 @@
 					</div>
 				</div>
 				
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Susanna</h3>
@@ -243,7 +246,7 @@
 					</div>
 				</div>
 				
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Franco</h3>
@@ -259,7 +262,7 @@
 					</div>	
 				</div>
 				
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Elettra</h3>
@@ -274,7 +277,7 @@
 					</div>
 				</div>
 				
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Alessio</h3>
@@ -289,13 +292,13 @@
 					</div>
 				</div>
 				
-				<div class="col-lg-4">
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing">
 						<div class="expandable-container-title">
 							<h3>Claudia</h3>
 							<img src="assets/images/testes/genericuser.png"></img>
 						</div>
-						<div class="expandable-container-text">
+						<div class="expandable-container-text">  
                             Ho conosciuto il Metodo in modo assolutamente casuale, nell'ambito di una prestazione ambulatoriale ospedaliera.
 							È stata un'incredibile esperienza esoterica che ha cambiato il mio stato psicofisico. Ritengo che sia una grande 
 							conquista riuscire a contrastare il dolore senza ricorrere a terapie farmacologiche. L. è un'insegnante molto 
@@ -304,8 +307,8 @@
 					</div>
 			    </div>
 			
-			<!-- 
-				<div class="col-lg-4">
+			<!-- until screen is large, group by three; until the screen is medium, group by two; finally, group by one
+				<div class="col-lg-4 col-md-6">
 					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview">
 						<div class="expandable-container-title">
 							<h3></h3>
@@ -398,20 +401,22 @@
 						if(clicked){
 							clicked = false;
 							title.removeChild(p); 
-							for (const cls of parent.classList)   //remove all the class attributes associated to the parent to reset its positioning
+							for (const cls of originalClassList)  //remove all the class attributes associated to the parent to reset its positioning; use the copied array to perform this operation
                                 parent.classList.remove(cls);     //the classList is a list data structure, called DOMTokenList
+						        //console.log('removed: '+ cls + 'now currentstate is: ' + parent.classList);}
 						}
 						else{
 							clicked = true;
 							title.appendChild(p);
 							for (const cls of originalClassList)  //add back all the class attributes associated to the parent to restore its positioning
                                 parent.classList.add(cls);
+								//console.log('added: ' + cls + 'now currentstate is: ' + parent.classList);}
 						}
 						
 						cont.scrollIntoView({     //compensate possible unexpected repositioning of the item by centering the view on it- i know, i should do better than this but should be enough
 							behavior: "smooth",   // smooth scrolling
-							block: "center",      // center vertically
-							inline: "center"      // center horizontally (if horizontal scroll)
+							block:    "center",   // center vertically
+							inline:   "center"    // center horizontally (if horizontal scroll)
 						});
 					}
 				);
@@ -472,5 +477,4 @@
 		);
 	</script>
 	
-
 </html>
