@@ -29,7 +29,7 @@
 			        <img class="logo" src="assets/images/logo.png">
 				    <button id="main-button" class="menu-main-button">Centro Equilibrio Psicofisico di Lauretana</button>
 				</div>
-				<div id="menu-buttons">
+				<div id="menu-items">
 					<button id="events-button"     class="common-container common-menu-button">Eventi</button>
 					<button id="about-us-button"   class="common-container common-menu-button">Chi siamo</button>
 					<button id="contact-us-button" class="common-container common-menu-button">Contatti</button>
@@ -37,7 +37,7 @@
 					<!--<button class="common-container common-button">Eventi</button>-->
 			    </div>
 				
-				<button id="website-button" class="common-container common-button put-on-right-side">Home</button>
+				<button id="jolly-button" class="common-container common-button put-on-right-side"></button>
 				</div>
 			</nav>
 		</header>
@@ -63,6 +63,8 @@
 					e l'eleganza con cui è possibile vivere questa breve esistenza.		
 				</div>
             </div>
+			
+			<div id="overflow-container" class="common-overlaid-container common-menu overflow-list" hidden="true"></div>
 
             <div class="add-med-spacing"></div>			
 		
@@ -455,6 +457,8 @@
 	<!--script>
 	
 	</script-->
+	
+	<!--FUNCTIONS TO HANDLE MAIN MENU NAVIGATION-->
 	 
 	<!--this script associates buttons to their correspondant functions-->
 	<script>
@@ -477,4 +481,53 @@
 		);
 	</script>
 	
+	<!--manage the 'jolly-button' functionality and dynamic menu resizing-->
+	<script>
+		let documentStyles = getComputedStyle(document.documentElement);
+		let criticalWidth  = parseInt(documentStyles.getPropertyValue('--menu-requires-overflow-list').trim());
+		let okMinimumWidth = parseInt(documentStyles.getPropertyValue('--menu-can-be-restored-properly').trim());
+       
+	    let overflowContainer = document.getElementById('overflow-container');
+		let jollyButton = document.getElementById('jolly-button');
+		let menuItems   = document.getElementById('menu-items');
+		let menuParent  = menuItems.parentElement;	
+		
+		let hasCrossed0 = false;  //a NOR latch: both can't be true
+		let hasCrossed1 = false;  //these variables exist to ensure the associated operation is performed one time
+		
+		jollyButton.addEventListener('click',() =>{});  //initialize the click listener
+		
+		window.addEventListener('resize', handleOverflowItems);
+		handleOverflowItems();      //run once to initialize the jolly-button
+		
+		function handleOverflowItems(){
+			
+			if(!hasCrossed0 && window.innerWidth <= criticalWidth){   //case 1: the buttons turns a hamburger
+				hasCrossed0 = true;
+				hasCrossed1 = false;
+				menuParent.removeChild(menuItems);
+				overflowContainer.appendChild(menuItems);
+				//assign jolly-button expand-collapse function
+				jollyButton.innerHTML="☰";
+				jollyButton.onclick = () =>{
+					overflowContainer.hidden = !overflowContainer.hidden;
+				};
+			}
+			
+			if(!hasCrossed1 && window.innerWidth >= okMinimumWidth){  //case 2: the buttons turns a Home button
+				hasCrossed0 = false;
+				hasCrossed1 = true;
+				try{
+					overflowContainer.hidden = true;                  //the first time the second one it will throw an exception.	                  
+					overflowContainer.removeChild(menuItems);         //that's fine, cause on the first time 
+					menuParent.insertBefore(menuItems,jollyButton);   //these instructions don't need to be executed 
+				}catch(DOMException){}                                //insertBefore must be specified, else the menuItems is appended AFTER the jollyButton
+				//assign jolly-button home function
+				jollyButton.innerHTML='Home';
+				jollyButton.onclick = () =>{
+					window.location.href="#";
+				};
+			}
+		}	
+	</script>	
 </html>
