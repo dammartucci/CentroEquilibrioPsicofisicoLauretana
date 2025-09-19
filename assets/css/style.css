@@ -11,6 +11,27 @@
 	text-align: center;
 }
 
+/*HERO SCREEN AND PARALLAX*/
+.parallax-container{
+    z-index: -1;
+    height: 110vh;	
+} 
+.parallax-container-title, .parallax-container-text{
+	font-family: DokChampa;
+	color: white;
+	text-shadow: 0 3px 10px black;
+	
+	text-align: center;
+}
+
+.parallax-container-title{
+	font-size: 80px;
+}
+.parallax-container-text{
+	font-size: 20px;
+}
+
+
 @media (max-width: 768px) {      /*necessary,else everything gets squeezed*/
   .common-container {
     padding: 30px 8px 30px 8px;  /* reduce left/right padding */
@@ -166,12 +187,6 @@
 	background: none;
 	border: none;
 }
-
-/*HERO SCREEN AND PARALLAX*/
-.parallax-container{
-
-}
-
 
 /*ELEMENTS WITH EXPANDABLE CONTENTS*/
 

@@ -43,10 +43,16 @@
 			</nav>
 		</header>
 		
-		<div id="hero-screen" class="parallax-container">
-		    <h1>Equilibrio</h1>
-			<p>Sblocca le tue potenzialità riunendo corpo e mente</p>
+		<div id="parallax-container" class="parallax-container">
+			<img src="assets/images/parallax/layer[0].webp" data-speed="0.0">
+			<img src="assets/images/parallax/layer[1].webp" data-speed="0.1">
+			<img src="assets/images/parallax/layer[2].webp" data-speed="0.2">
+			<img src="assets/images/parallax/layer[3].webp" data-speed="0.8">
+			
+		    <h1 class="parallax-container-title"><br><br><br>Equilibrio</h1>
+			<p class="parallax-container-text">Sblocca le tue potenzialità riunendo corpo e mente</p>
 		</div>
+		
 		
 		<div id="about-us" class="common-container">
 		    <div class="row">
@@ -551,4 +557,29 @@
 		for(const toSpawn of toSpawns)
 		    observer.observe(toSpawn);
 	</script>
+	
+	<!-- ENABLE THE PARALLAX EFFECT -->
+	<script>
+		    //the parallax can work ONLY if you hardwire the initial height of each image, absolute to the first layer, in the images themselves.
+			//if you, like me, think that you can dynamically set the inital vertical height of the images, you will fail.
+			//the reason: you should create a function that is invoked each time there is a window resize. a terrible waste of computation.
+			let parallaxContainer = document.getElementById("parallax-container");
+			let layers = parallaxContainer.querySelectorAll("img");
+			for(let i=0;i<layers.length;i++){   
+				layers[i].classList.add("img-fluid");   //the bootstrap property to dynamically resize image to not overflow the external bounds
+			    layers[i].style.zIndex   = -1;
+				layers[i].style.position = "absolute";  //the condition to correctly stack each image to their initial position.
+			}
+			
+			//parallaxContainer.style.zIndex = -1;
+			//parallaxContainer.style.height = "110vh";
+			
+			window.addEventListener('scroll', () => {
+				const scrollTop = -window.pageYOffset;
+				layers.forEach(layer => {
+					const speed = parseFloat(layer.dataset.speed);
+					layer.style.transform = `translateY(${scrollTop * speed}px)`;
+				});
+		    });
+		</script>
 </html>
