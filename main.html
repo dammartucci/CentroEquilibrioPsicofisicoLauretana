@@ -19,6 +19,9 @@
 		<!-- the file containing the custom styling of this page -->
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		
+		<!-- the script to handle custom behaviours in case of crossing a minimum size -->
+		<script src="assets/js/BoundsWatcher.js"></script>
+		
 		<!-- the file containing the script for animating expandable containers-->
 		<!--<link rel="stylesheet" type="text/css" href=""> -->
 	</head>
@@ -404,6 +407,7 @@
 				let text = cont.querySelector('.expandable-container-text').innerHTML.replace(/\n|\t/g,"").substring(0,100)+"...";  //html indentation can introduce these unwanted characters
 				let p    = document.createElement('p');           //create a paragraph to include the preview text
 				p.textContent = text;
+				p.classList.add("add-min-vert-spacing");
 				let title = cont.querySelector('.expandable-container-title');
 				title.appendChild(p);
 				
@@ -502,43 +506,31 @@
 		let menuItems   = document.getElementById('menu-items');
 		let menuParent  = menuItems.parentElement;	
 		
-		let hasCrossedL = false;  //a NOR latch: both can't be true
-		let hasCrossedH = false;  //these variables exist to ensure the associated operation is performed one time
-		
 		jollyButton.addEventListener('click',() =>{});  //initialize the click listener
 		
-		window.addEventListener('resize', handleOverflowItems);
-		handleOverflowItems();      //run once to initialize the jolly-button
+		let b = new BoundsWatcher(
+		    () => window.innerWidth <= criticalWidth,
+		    () => { menuParent.removeChild(menuItems);
+					overflowContainer.appendChild(menuItems);
+					//assign jolly-button expand-collapse function
+					jollyButton.innerHTML="☰";
+					jollyButton.onclick = () =>{overflowContainer.hidden = !overflowContainer.hidden;};  
+				  },
+			() => window.innerWidth >= okMinimumWidth,
+			() => {
+					try{
+						overflowContainer.hidden = true;                  //the first time the second one it will throw an exception.	                  
+						overflowContainer.removeChild(menuItems);         //that's fine, cause on the first time 
+						menuParent.insertBefore(menuItems,jollyButton);   //these instructions don't need to be executed 
+					}catch(DOMException){}                                //insertBefore must be specified, else the menuItems is appended AFTER the jollyButton
+					//assign jolly-button home function
+					jollyButton.innerHTML='Home';
+					jollyButton.onclick = () =>{window.location.href="#";};
+			      }	
+		);
 		
-		function handleOverflowItems(){
-			
-			if(!hasCrossedL && window.innerWidth <= criticalWidth){   //case 1: the buttons turns a hamburger
-				hasCrossedL = true;
-				hasCrossedH = false;
-				menuParent.removeChild(menuItems);
-				overflowContainer.appendChild(menuItems);
-				//assign jolly-button expand-collapse function
-				jollyButton.innerHTML="☰";
-				jollyButton.onclick = () =>{
-					overflowContainer.hidden = !overflowContainer.hidden;
-				};
-			}
-			
-			if(!hasCrossedH && window.innerWidth >= okMinimumWidth){  //case 2: the buttons turns a Home button
-				hasCrossedL = false;
-				hasCrossedH = true;
-				try{
-					overflowContainer.hidden = true;                  //the first time the second one it will throw an exception.	                  
-					overflowContainer.removeChild(menuItems);         //that's fine, cause on the first time 
-					menuParent.insertBefore(menuItems,jollyButton);   //these instructions don't need to be executed 
-				}catch(DOMException){}                                //insertBefore must be specified, else the menuItems is appended AFTER the jollyButton
-				//assign jolly-button home function
-				jollyButton.innerHTML='Home';
-				jollyButton.onclick = () =>{
-					window.location.href="#";
-				};
-			}
-		}	
+		window.addEventListener('resize', () => b.handleOverflowItems());
+		b.handleOverflowItems();      //run once to initialize the jolly-button
 	</script>
 
     <!--ENABLE DYNAMIC PRESENTATION OF CONTENTS-->
@@ -558,11 +550,11 @@
 		    observer.observe(toSpawn);
 	</script>
 	
-	<!-- ENABLE THE PARALLAX EFFECT -->
+	<!-- ENABLE THE PARALLAX EFFECT: MANAGE THE IMAGE SIZES DYNAMICALLY, AND HANDLE THE CASE OF A SCREEN WITH INSUFFICIENT WIDTH -->
 	<script>
 		    //the parallax can work ONLY if you hardwire the initial height of each image, absolute to the first layer, in the images themselves.
 			//if you, like me, think that you can dynamically set the inital vertical height of the images, you will fail.
-			//the reason: you should create a function that is invoked each time there is a window resize. a terrible waste of computation.
+			//the reason: setting an initial location in pixel will desync one layer from another if the images are resized (and they are)
 			let parallaxContainer = document.getElementById("parallax-container");
 			let layers = parallaxContainer.querySelectorAll("img");
 			for(let i=0;i<layers.length;i++){   
@@ -571,15 +563,38 @@
 				layers[i].style.position = "absolute";  //the condition to correctly stack each image to their initial position.
 			}
 			
+			window.addEventListener('scroll', () => {
+				const scrollTop = -window.pageYOffset;
+				for(let i=0;i<layers.length;i++){   
+					const speed = parseFloat(layers[i].dataset.speed);
+					layers[i].style.transform = `translateY(${scrollTop * speed}px)`;
+				}
+		    });
+			
 			//parallaxContainer.style.zIndex = -1;
 			//parallaxContainer.style.height = "110vh";
 			
-			window.addEventListener('scroll', () => {
-				const scrollTop = -window.pageYOffset;
-				layers.forEach(layer => {
-					const speed = parseFloat(layer.dataset.speed);
-					layer.style.transform = `translateY(${scrollTop * speed}px)`;
-				});
-		    });
+			let minWidth = parseInt(documentStyles.getPropertyValue('--parallax-requires-overflow').trim());
+	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());
+			
+			let b2 = new BoundsWatcher(
+			    () => window.innerWidth < minWidth,
+				() => {
+				    for(let i=0;i<layers.length;i++){
+					    layers[i].classList.toggle("img-fluid", false);
+					    layers[i].style.width = okWidth + "px";
+					}
+				},
+				() => window.innerWidth >= okWidth,
+				() => {
+				    for(let i=0;i<layers.length;i++){
+					    layers[i].classList.toggle("img-fluid", true);
+						layers[i].style.width = "auto";
+					}
+				}
+			);
+			
+			window.addEventListener('resize',() => b2.handleOverflowItems());
+            b2.handleOverflowItems();			
 		</script>
 </html>
