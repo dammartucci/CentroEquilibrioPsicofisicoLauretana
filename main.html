@@ -570,7 +570,8 @@
 					layers[i].style.transform = `translateY(${scrollTop * speed}px)`;
 				}
 		    });
-			
+
+		    console.log(window.innerWidth);
 			//parallaxContainer.style.zIndex = -1;
 			//parallaxContainer.style.height = "110vh";
 			
@@ -583,7 +584,7 @@
 				    for(let i=0;i<layers.length;i++){
 					    layers[i].classList.toggle("img-fluid", false);
 					    layers[i].style.width = okWidth + "px";
-						console.log(window.innerWidth);
+						console.log("processing layer: " + i);
 					}
 				},
 				() => window.innerWidth >= okWidth,
@@ -600,3 +601,4 @@
 		</script>
 
 </html>
+
