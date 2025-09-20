@@ -180,7 +180,7 @@
 :root{
 	--menu-requires-overflow-list: 1024;	
 	--menu-can-be-restored-properly: 1016;
-	--parallax-requires-overflow: 970;
+	--parallax-requires-overflow: 1000;
 	--parallax-can-be-restored: 1024;
 }
 
@@ -230,5 +230,4 @@
 .spawn-item.observed{
 	opacity: 1;
 	transform: translateY(0);
-
 }
