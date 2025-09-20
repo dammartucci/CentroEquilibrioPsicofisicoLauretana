@@ -575,10 +575,7 @@
 			//parallaxContainer.style.height = "110vh";
 			
 			let minWidth = parseInt(documentStyles.getPropertyValue('--parallax-requires-overflow').trim());
-	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());
-
-		    console.log(window.innerWidth + " " + window.innerWidth<=minWidth);
-		
+	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());		
 			
 			let b2 = new BoundsWatcher(
 			    () => window.innerWidth <= minWidth,
@@ -586,7 +583,7 @@
 				    for(let i=0;i<layers.length;i++){
 					    layers[i].classList.toggle("img-fluid", false);
 					    layers[i].style.width = okWidth + "px";
-						console.log("processing layer: " + i);
+						console.log("processing layer: " + i + "; width: " + layers[i].width + " height: " + layers[i].height);
 					}
 				},
 				() => window.innerWidth >= okWidth,
@@ -603,6 +600,7 @@
 		</script>
 
 </html>
+
 
 
 
