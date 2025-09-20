@@ -1,20 +1,9 @@
-/*styling for the main page containers*/
-.common-container{
-    /* background: linear-gradient(90deg,#7474bf,#348ac7); */
-	background: linear-gradient(90deg,#6987C0,#2F8F2E);
-	padding: 30px 60px 30px 60px;
-	
-	src: url('assets/fonts/DokChampa.ttf') format('ttf');  /*not every machine possesses this font*/
-	font-family: DokChampa;
-	font-size: 17px; 
-	color: white;
-	text-align: center;
-}
-
 /*HERO SCREEN AND PARALLAX*/
 .parallax-container{
     z-index: -1;
     height: 110vh;	
+	
+	overflow: hidden;
 } 
 .parallax-container-title, .parallax-container-text{
 	font-family: DokChampa;
@@ -31,6 +20,18 @@
 	font-size: 20px;
 }
 
+/*MAIN PAGE CONTAINERS*/
+.common-container{
+    /* background: linear-gradient(90deg,#7474bf,#348ac7); */
+	background: linear-gradient(90deg,#6987C0,#2F8F2E);
+	padding: 30px 60px 30px 60px;
+	
+	src: url('assets/fonts/DokChampa.ttf') format('ttf');  /*not every machine possesses this font*/
+	font-family: DokChampa;
+	font-size: 17px; 
+	color: white;
+	text-align: center;
+}
 
 @media (max-width: 768px) {      /*necessary,else everything gets squeezed*/
   .common-container {
@@ -179,6 +180,8 @@
 :root{
 	--menu-requires-overflow-list: 1024;	
 	--menu-can-be-restored-properly: 1016;
+	--parallax-requires-overflow: 980;
+	--parallax-can-be-restored: 1024;
 }
 
 .menu-main-button{          /*the title is a link, and an html button is used, not an anchor*/
