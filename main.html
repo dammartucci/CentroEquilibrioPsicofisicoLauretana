@@ -10,7 +10,8 @@
 		
 		 <!--fundamental statement, to ensure that mobile devices screens render the website
 		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		
 		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
 		    Associated dependencies need to be loaded:-->
@@ -570,20 +571,20 @@
 					layers[i].style.transform = `translateY(${scrollTop * speed}px)`;
 				}
 		    });
-		
+			
 			//parallaxContainer.style.zIndex = -1;
 			//parallaxContainer.style.height = "110vh";
 			
 			let minWidth = parseInt(documentStyles.getPropertyValue('--parallax-requires-overflow').trim());
-	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());		
+	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());
 			
 			let b2 = new BoundsWatcher(
 			    () => window.innerWidth <= minWidth,
 				() => {
+
 				    for(let i=0;i<layers.length;i++){
 					    layers[i].classList.toggle("img-fluid", false);
 					    layers[i].style.width = okWidth + "px";
-						console.log("processing layer: " + i + "; width: " + layers[i].width + " height: " + layers[i].height);
 					}
 				},
 				() => window.innerWidth >= okWidth,
@@ -598,9 +599,4 @@
 			window.addEventListener('resize',() => b2.handleOverflowItems());
             b2.handleOverflowItems();			
 		</script>
-
 </html>
-
-
-
-
