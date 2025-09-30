@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
+	
+		<title>Centro Equilibrio Psicofisico di Lauretana - Modulo di Pagamento</title>
+		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
+        other languages, and emojis. HTML5 supports it -->
+		<meta charset="utf-8"> 
+		
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		
+		<!-- the file containing the custom styling of this page -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
+	</head>
+
+    <body>
+	
+		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	    <!-- the main menu is added by the script -->
+		
+	    <div class="common-container"></div>
+		<div class="common-container"></div>
+		
+		<div class="common-container">
+		    <h3>Non è ancora disponibile un tipico modulo di pagamento, che richiede l'uso di funzionalità più 
+			avanzate.<br></h3> 
+			
+			<div class="common-container add-med-vert-spacing"></div>
+			Ad ogni modo, è comunque possibile riservare il proprio posto effettuando un pagamento. Ecco le istruzioni:<br>
+			<div class="common-container add-med-vert-spacing"></div>
+			
+			<div class="common-overlaid-container add-med-spacing spawn-element">
+				Inviare un bonifico al seguente IBAN: NON_ANCORA_DEFINITO: INVIA_MESSAGGIO_NEL_FORM<br>
+				Specificare nella causale: NOME, E-MAIL, NOME DELL'EVENTO<br>
+			</div>
+			<div class="common-container add-med-vert-spacing"></div>
+			
+			Ed ora, passiamo a questioni di puntualità.<br> 
+			È infatti essenziale per garantire efficienza, e un'esperienza di apprendimento eccellente per tutti.<br>
+			
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+				<div class="expandable-container-title">Qual è il margine massimo accettabile di ritardo?</div>
+				<div class="expandable-container-text"> 
+				    È sempre di quindici minuti. L'insegnante, in quel tempo, è occupato 
+					a fare l'introduzione di ciò che sarà trattato nella lezione. 
+				</div>
+			</div>
+            
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+				<div class="expandable-container-title">Che cosa accade se supero il margine di ritardo?</div>
+				<div class="expandable-container-text"> 
+				    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+						<div class="expandable-container-title">In presenza</div>
+						<div class="expandable-container-text"> 
+				            Non è ancora stato deciso. Si vedrà sul momento.
+						</div>
+					</div>
+					
+					<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+						<div class="expandable-container-title">A distanza</div>
+						<div class="expandable-container-text"> 
+				            Non sarà più possibile unirsi alla riunione. Sarà tuttavia, al termine di essa, 
+							inviato un link per vedere una ripetizione della stessa. 
+						</div>
+					</div>   
+				</div>
+			</div>
+
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+				<div class="expandable-container-title">Ma tutto ciò non è estremo?</div>
+				<div class="expandable-container-text"> 
+				    Ecco che cosa dice l'insegnante, Lauretana, a riguardo:<br>
+					<i>"È vero, sembra così, ma credimi, per esperienza, è davvero insopportabile, sia per me che per gli altri, 
+					essere interrotti nella concentrazione da qualcuno che si presenta in ritardo, che, inoltre, avrà difficoltà 
+					a capire che cosa si sta facendo, peggiorando così sia la sua che l'altrui qualità della lezione".</i>
+				</div>
+			</div>
+			
+			<div class="common-container add-hig-vert-spacing">
+			    E per qualsiasi domanda, compila questo form:
+			</div>
+
+			<div id="insert-form-as-inner-html" class="common-overlaid-container add-hig-spacing spawn-item">
+			</div>
+			
+		</div>
+		
+		<!-- the footer note is added by the script -->
+	
+	</body>
+</html>

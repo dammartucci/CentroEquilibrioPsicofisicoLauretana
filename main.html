@@ -3,7 +3,7 @@
 	<head>
 	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
 	
-		<title>Centro Equilibrio Psicofisico di Lauretana</title>
+		<title>Centro Equilibrio Psicofisico di Lauretana - Pagina principale</title>
 		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
         other languages, and emojis. HTML5 supports it -->
 		<meta charset="utf-8"> 
@@ -20,32 +20,19 @@
 		<!-- the file containing the custom styling of this page -->
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		
-		<!-- the script to handle custom behaviours in case of crossing a minimum size -->
-		<script src="assets/js/BoundsWatcher.js"></script>
-		
-		<!-- the file containing the script for animating expandable containers-->
-		<!--<link rel="stylesheet" type="text/css" href=""> -->
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
 	</head>
 
-	<body>			
-	    <header>
-			<nav id="main-menu" class="common-overlaid-container common-menu spawn-item">
-			    <div class="block-container">
-			        <img class="logo" src="assets/images/logo.png">
-				    <button id="main-button" class="menu-main-button">Centro Equilibrio Psicofisico di Lauretana</button>
-				</div>
-				<div id="menu-items">
-					<button id="events-button"     class="common-container common-menu-button">Eventi</button>
-					<button id="about-us-button"   class="common-container common-menu-button">Chi siamo</button>
-					<button id="contact-us-button" class="common-container common-menu-button">Contatti</button>
-					<button id="history-button"    class="common-container common-menu-button">Storia</button>
-					<!--<button class="common-container common-button">Eventi</button>-->
-			    </div>
-				
-				<button id="jolly-button" class="common-container common-button put-on-right-side"></button>
-				</div>
-			</nav>
-		</header>
+	<body>
+	    <!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	     <!-- the main menu is added by the script -->
 		
 		<div id="parallax-container" class="parallax-container">
 			<img src="assets/images/parallax/layer[0].webp" data-speed="0.0">
@@ -53,18 +40,20 @@
 			<img src="assets/images/parallax/layer[2].webp" data-speed="0.2">
 			<img src="assets/images/parallax/layer[3].webp" data-speed="0.8">
 			
-		    <h1 class="parallax-container-title"><br><br><br>Equilibrio</h1>
-			<p class="parallax-container-text">Sblocca le tue potenzialità riunendo corpo e mente</p>
+		    <div class="parallax-container-title">
+			    Equilibrio
+			    <p class="parallax-container-text">Sblocca le tue potenzialità riunendo corpo e mente</p>
+			</div>
 		</div>
 		
 		
 		<div id="about-us" class="common-container">
 		    <div class="row">
-			    <div class="col-sm-5 text-align-center-left spawn-item">
+			    <div class="col-sm-5 text-align-center-left spawn-element">
 		            <h2 class="add-med-vert-spacing">Ti va di riscoprire quella piacevole sensazione di padronanza e leggerezza, sia fisica che mentale?</h2>
 				</div>
 				
-				<div class="col-sm-7 text-align-center-left spawn-item">
+				<div class="col-sm-7 text-align-center-left spawn-element">
 					La nostra missione è diffondere l'armonia e l'equilibrio nel mondo.<br>
 					Affinché ciò accada, si deve iniziare da sé stessi.<br>
 					Il nostro insegnante, Lauretana Trevisi, lo rende possibile grazie alla sua esperienza pluriennale nel metodo Feldenkrais, 
@@ -74,15 +63,12 @@
 					e l'eleganza con cui è possibile vivere questa breve esistenza.		
 				</div>
             </div>
-			
-			<!-- the element used to collect overflowing items from the menu -->
-			<div id="overflow-container" class="common-overlaid-container common-menu overflow-list" hidden="true"></div>
 
             <div class="add-med-spacing"></div>			
 		
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="common-overlaid-container add-min-spacing spawn-item">
+					<div class="common-overlaid-container add-min-spacing spawn-element">
 					    <img class="img-fluid" src="assets/images/places/place[0].jpg">
 					    <p class="add-med-vert-spacing">
 						   La sede I, situata a Saracinesco.<br>
@@ -91,7 +77,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="common-overlaid-container add-min-spacing spawn-item">
+					<div class="common-overlaid-container add-min-spacing spawn-element">
 					    <img class="img-fluid" src="assets/images/places/place[1].jpg">
 					    <p class="add-med-vert-spacing">
 						    Un esempio di lezione Feldenkrais di gruppo. L'insegnante dà istruzioni dettagliate sulle posizioni da assumere.
@@ -105,14 +91,14 @@
 		
 		<div id="faqs" class="common-container">
 		    <h2>Di che cosa parli esattamente?</h2>
-		    <p class="add-min-vert-spacing spawn-item">
+		    <p class="add-min-vert-spacing spawn-element">
 		      Se vuoi iniziare oggi stesso il percorso per cambiare la tua vita, dai uno sguardo qui!<br> 
 			  Abbiamo raccolto una lista di domande più comuni, fatte direttamente a Lauretana.<br>
 		    </p>
 			
 			<div class="common-container add-med-spacing">La base</div>
 		
-		    <div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+		    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Che cos'è il metodo Feldenkrais?</div>
 				<div class="expandable-container-text">
 				    È un'educazione al movimento che aiuta a migliorare la propria postura, flessibilità, e complessivamente gli schemi neuromotori. 
@@ -121,7 +107,7 @@
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">A che cosa serve?</div>
 				<div class="expandable-container-text">
 					Riduce tensione muscolare involontaria, elimina le posture errate, causate da anni di cattive abitudini,
@@ -132,7 +118,7 @@
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Non l'ho mai sentito. È così importante?</div>
 				<div class="expandable-container-text">
 				    Si. In effetti è abbastanza diffuso tra gli atleti, che ne fanno uso per migliorare il recupero
@@ -142,21 +128,21 @@
 			
 			<div class="common-container add-med-spacing">Questioni tecniche</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Quanto tempo per notare cambiamenti?</div>
 				<div class="expandable-container-text">
 				    Alcuni lo notano immediatamente, altri dopo alcune settimane. 
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Occorre un allenamento propedeutico?</div>
 				<div class="expandable-container-text">
 				    No. I movimenti sono graduali. Man mano si procede a cose più difficili. Il metodo si adatta alle tue abilità.
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">In che modalità si può apprendere?</div>
 				<div class="expandable-container-text">
 				    In seduta individuale o collettiva.<br> 
@@ -167,7 +153,7 @@
 			
 			<div class="common-container add-med-spacing">Ora ci sei dentro!</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Un consiglio per apprendere velocemente?</div>
 				<div class="expandable-container-text">
 				    Resta concentrato sui movimenti che ti dico di fare. 
@@ -177,7 +163,7 @@
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Quanto spesso occorre praticarlo?</div>
 				<div class="expandable-container-text">
 				    Pochi minuti al giorno fanno una grande differenza. 
@@ -185,7 +171,7 @@
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Può sostituire trattamenti medici?</div>
 				<div class="expandable-container-text">
 				    No. E prima di praticarlo, consiglio di consultare il medico, 
@@ -193,7 +179,7 @@
 				</div>
 			</div>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title">Voglio conoscerti. Dimmi come incontrarci</div>
 				<div class="expandable-container-text"> 
 				    Posso seguirti in presenza o a distanza.<br>
@@ -206,7 +192,7 @@
 			</div>
 			
 			<!-- 
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-item">
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 			    <div class="expandable-container-title"></div>
 				<div class="expandable-container-text"> 
 				</div>
@@ -227,10 +213,10 @@
 				This happens in Bootstrap 4 and even 5. The only solution is to wrap them in other divs that are used by 
 				Bootstrap as items to display and apply the spacing in the nested div-->
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Antonio</h3>
-							<img src="assets/images/testes/antonio.png"></img>
+							<img src="assets/images/testes/antonio.webp"></img>
 						</div>
 						<div class="expandable-container-text">
 							Negli anni 50, quando ero adolescente, ricevetti un'educazione fisica molto rigida. Rimasi per 
@@ -246,10 +232,10 @@
 				</div>
 				
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Susanna</h3>
-							<img src="assets/images/testes/susanna.png"></img>
+							<img src="assets/images/testes/susanna.webp"></img>
 						</div>
 						<div class="expandable-container-text">
 							Ho cominciato per disperazione, poiché, soffrendo di coxartrosi a tutte e due le anche, i dolori 
@@ -262,10 +248,10 @@
 				</div>
 				
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Franco</h3>
-							<img src="assets/images/testes/franco.png"></img>
+							<img src="assets/images/testes/franco.webp"></img>
 						</div>
 						<div class="expandable-container-text">
 							Non sapevo esattamente cosa aspettarmi, ma la prima lezione mi ha stupito. Mi sentivo più rilassato,
@@ -278,10 +264,10 @@
 				</div>
 				
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Elettra</h3>
-							<img src="assets/images/testes/elettra.png"></img>
+							<img src="assets/images/testes/elettra.webp"></img>
 						</div>
 						<div class="expandable-container-text">
 						    Avevo dei dolori posturali, durante la giornata. Avevo anche iniziato a praticare un'arte marziale.
@@ -293,10 +279,10 @@
 				</div>
 				
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Alessio</h3>
-							<img src="assets/images/testes/genericuser.png"></img>
+							<img src="assets/images/testes/genericuser.webp"></img>
 						</div>
 						<div class="expandable-container-text">
 					        Sono un praticante di parkour, nel tempo libero. È uno sport molto duro, specialmente per i principianti. 
@@ -308,10 +294,10 @@
 				</div>
 				
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
 							<h3>Claudia</h3>
-							<img src="assets/images/testes/genericuser.png"></img>
+							<img src="assets/images/testes/genericuser.webp"></img>
 						</div>
 						<div class="expandable-container-text">  
                             Ho conosciuto il Metodo in modo assolutamente casuale, nell'ambito di una prestazione ambulatoriale ospedaliera.
@@ -321,18 +307,62 @@
 						</div>
 					</div>
 			    </div>
+				
+				<div class="col-lg-4 col-md-6">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
+						<div class="expandable-container-title">
+							<h3>Elisa</h3>
+							<img src="assets/images/testes/elisa.webp"></img>
+						</div>
+						<div class="expandable-container-text">
+							A giugno del 2023 sono caduta, procurandomi una rottura del gomito e di due costole. Mi hanno operato mettendomi 
+							una protesi a elle. In questa brutta esperienza ho avuto la fortuna di conoscere L. ed ho iniziato un percorso con lei con l'Integrazione Funzionale. Non riuscivo neppure a lavarmi il viso quando ho iniziato. Ad ogni seduta miglioravo fino a quando ho potute ridistendere il gomito, alla quarta seduta. Il mio braccio è tornato alla normalità, e tutto ciò, senza dolore.<br>
+							Grazie, per tutto. 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-6">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
+						<div class="expandable-container-title">
+							<h3>Gabriella</h3>
+							<img src="assets/images/testes/gabriella.webp"></img>
+						</div>
+						<div class="expandable-container-text">
+							Ho conosciuto L. nel 2002. Da allora, ho imparato a dare valore al respiro, a rispettare i miei limiti senza giudizio,
+							a riconoscere la forma mascosta nei piccoli progressi quotidiani. Il suo insegnamento mi ha aiutato a scoprire un mondo,
+							ritrovando l'armonia con me stessa e con il resto. L. ha coinvolto nella pratica del Metodo anche mia madre, ormai anziana,
+							priva di ogni esperienza nella ginnastica. L. ha offerto la possibilità di riavvicinarsi al movimemnto in modo sereno e rispettoso.
+							Ricordo ancora le sue parole che proferiva con un sorriso, sul fatto che avrebbe voluto conoscere tutto ciò prima. 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-6">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
+						<div class="expandable-container-title">
+							<h3>Giancarlo</h3>
+							<img src="assets/images/testes/giancarlo.webp"></img>
+						</div>
+						<div class="expandable-container-text">
+							Da qualche anno ho problemi importanti con il collo, spalle, e cervicale, fino ad arrivare alle vertigini, che ti bloccano a letto.
+							Ho scoperto grazie ai miei vicini di casa dell'esistenza del Metodo. Ho iniziato con lezioni individuali, poi di gruppo. Ho notato 
+							un miglioramento lento e costante, che mi ha aiutato ad uscire da questa situazione invalidante, fino ad arrivare a un benessere 
+							generale. Questi risultati mi hanno dato la consapevolezza che possiamo uscire dai problemi fisici e vivere più serenamente, come è 
+							giusto che sia per l'umanità. 
+						</div>
+					</div>
+				</div>
 			
 			<!-- until screen is large, group by three; until the screen is medium, group by two; finally, group by one
 				<div class="col-lg-4 col-md-6">
-					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-item">
+					<div class="style-square-image common-overlaid-container expandable-container expandable-container-preview add-min-spacing spawn-element">
 						<div class="expandable-container-title">
-							<h3></h3>
+							<h3>name</h3>
 							<img src="assets/images/testes/"></img>
 						</div>
 						<div class="expandable-container-text">
-							<p>
-								   
-							</p>
+						    insert_text_here
 						</div>
 					</div>
 				</div>
@@ -344,20 +374,12 @@
 		    <h2>Ora hai tutti gli elementi. Contattaci per prendere un appuntamento!</h2>
 			<div class="row add-hig-vert-spacing">
 				<div class="col-lg-6">
-					<div class="common-overlaid-container add-min-spacing spawn-item">
-						<form id="" action="" method="">
-							<input class="common-overlaid-container add-min-vert-spacing form-control" name="name" type="text" placeholder="Nome" required="" >
-							<input class="common-overlaid-container add-min-vert-spacing form-control" name="surname" type="text" placeholder="Cognome" required="" >
-							<input class="common-overlaid-container add-min-vert-spacing form-control" name="e-mail" type="text" placeholder="e-mail" required="" >
-							<textarea class="common-overlaid-container add-min-vert-spacing form-control" name="message" rows="6" placeholder="Inserisci messaggio..." required="" ></textarea>
-							<!--<input id="" class="" name="" type="text" placeholder="" required="" >-->
-							<button class="common-container common-button add-med-vert-spacing">Invia</button>
-						</form>
+					<div id="insert-form-as-inner-html" class="common-overlaid-container add-min-spacing spawn-element">
 					</div>
 				</div>
 				
 				<div class="col-lg-6">
-					<div class="common-overlaid-container add-min-spacing spawn-item">
+					<div class="common-overlaid-container add-min-spacing spawn-element">
 					    <iframe id="locations" class="common-iframe img-fluid" src="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						<div class="block-container">
 							<button id="locations-prev" class="common-container common-button put-on-left-side"><<</button>
@@ -369,234 +391,11 @@
 			</div>
 		</div>
 		
-		<div id="footer" class="common-container">
-		    <h2>Seguici sui social e diffondi la voce!</h2>	
-			<div class="style-square-image add-hig-spacing">
-			    <a href="https://facebook.com/yourprofile" target="_blank"><img src="assets/images/links/facebook.png"></img></a>
-			    <a href="https://www.instagram.com/yourprofile" target="_blank"><img src="assets/images/links/instagram.png"></img></a>
-				<a href="https://twitter.com/yourprofile" target="_blank"><img src="assets/images/links/twitter.png"></img></a>
-            </div>
-            <p class="add-high-vert-spacing">COPYRIGHT © 2025 - Centro Equilibrio Psicofisico di Lauretana Trevisi - tutti i diritti riservati</p>			
-		</div>
+		<!-- footer note loaded by the script -->
 		
 		<!--<div id="" class="common-container">
 		</div>
 		-->	
 	</body>
 	
-	<!--all the scripts have been appended at the end, because if page loading, that is sequential, is not complete they will fail.-->	
-	
-	<!--HANDLE THE EXPANDABLE-CONTAINER EXPANSION/COLLAPSE-->
-	<script>
-		const items = document.querySelectorAll('.expandable-container');
-			items.forEach(item => { 
-				item.querySelector('.expandable-container-title').addEventListener('click', () => 
-					{item.classList.toggle('clicked');}
-				);
-			});
-	</script>
-	
-	<!--HANDLE THE TEXT PREVIEW GENERATION FOR OBJECTS BELONGING TO EXPANDABLE-CONTAINER-PREVIEW CLASS, 
-	that i consider an extension (in java sense) of expandable-container. 
-	Parent container must be selected and its class edited to temporarily alter the bootstrap grid alignment -->
-	<script>		    
-		const conts = document.querySelectorAll('.expandable-container-preview');
-			conts.forEach(cont => {
-			    let parent            = cont.parentElement;
-				let originalClassList = [...parent.classList];    //copy each value of the original list into an array: spread operator
-				
-				let text = cont.querySelector('.expandable-container-text').innerHTML.replace(/\n|\t/g,"").substring(0,100)+"...";  //html indentation can introduce these unwanted characters
-				let p    = document.createElement('p');           //create a paragraph to include the preview text
-				p.textContent = text;
-				p.classList.add("add-min-vert-spacing");
-				let title = cont.querySelector('.expandable-container-title');
-				title.appendChild(p);
-				
-				let clicked = true;
-				title.addEventListener('click', () =>
-					{
-						if(clicked){
-							clicked = false;
-							title.removeChild(p); 
-							for (const cls of originalClassList)  //remove all the class attributes associated to the parent to reset its positioning; use the copied array to perform this operation
-                                parent.classList.remove(cls);     //the classList is a list data structure, called DOMTokenList
-						        //console.log('removed: '+ cls + 'now currentstate is: ' + parent.classList);}
-						}
-						else{
-							clicked = true;
-							title.appendChild(p);
-							for (const cls of originalClassList)  //add back all the class attributes associated to the parent to restore its positioning
-                                parent.classList.add(cls);
-								//console.log('added: ' + cls + 'now currentstate is: ' + parent.classList);}
-						}
-						
-						cont.scrollIntoView({     //compensate possible unexpected repositioning of the item by centering the view on it- i know, i should do better than this but should be enough
-							behavior: "smooth",   // smooth scrolling
-							block:    "center",   // center vertically
-							inline:   "center"    // center horizontally (if horizontal scroll)
-						});
-					}
-				);
-			});
-	</script>
-	
-	<!--HANDLE LOCATION SWITCHING ON GOOGLE MAPS IFRAME: hardwired for two cases only-->
-	<script>
-		let frame = document.getElementById('locations');
-		let label = document.getElementById('locations-name');
-		let prev  = document.getElementById('locations-prev');
-		let next  = document.getElementById('locations-next');
-		
-		let switchplace = true;
-		
-		function switching(){				
-			if(switchplace){
-				switchplace = false;
-				frame.setAttribute('src',"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.7236074043435!2d12.948246675368924!3d42.00620695738483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f9afbdd4fa15d%3A0xc5aff1f279225028!2sLocalit%C3%A0%20Macchiole%2C%201%2C%2000020%20Macchiole%20RM!5e0!3m2!1sen!2sit!4v1757720275993!5m2!1sen!2sit");
-				label.innerHTML = 'Sede I: Saracinesco RM<br>(attività individuali e di gruppo)';
-			}
-			else{
-				switchplace = true;
-				frame.setAttribute('src',"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.4081149860763!2d12.513676375362026!3d41.88407936504093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61ed3abe4fdf%3A0x5b8fb9fa118ca1df!2sVia%20Taranto%2C%2088%2C%2000100%20Roma%20RM!5e0!3m2!1sen!2sit!4v1757924885937!5m2!1sen!2sit");
-				label.innerHTML = 'Sede II: nel cuore di Roma<br>(attività individuali)';
-			}
-		}
-		
-		switching();  //invoke one time to initialize
-		
-		prev.addEventListener('click',switching);
-		next.addEventListener('click',switching);			
-	</script>
-	
-	<!--HANDLE FORM SUBMISSION TO A SERVER ACCEPTING JS GENERATED EMAILS (i use emailjs)-->
-	<!--script>
-	
-	</script-->
-	
-	<!--FUNCTIONS TO HANDLE MAIN MENU NAVIGATION-->
-	 
-	<!--associate buttons to their correspondant functions-->
-	<script>
-	    document.getElementById("main-button").addEventListener('click',() =>
-			{window.location.href="main.html"}
-		);
-	
-		document.getElementById("about-us-button").addEventListener('click',() =>
-			{window.location.href="#about-us"}
-		);
-		document.getElementById("contact-us-button").addEventListener('click',() =>
-			{window.location.href="#contact-us"}
-		);
-		
-		document.getElementById("history-button").addEventListener('click',() =>
-			{window.location.href="not-available.html"}
-		);
-		document.getElementById("events-button").addEventListener('click',() =>
-			{window.location.href="not-available.html"}
-		);
-	</script>
-	
-	<!--manage separately the 'jolly-button' and dynamic menu resizing-->
-	<script>
-		let documentStyles = getComputedStyle(document.documentElement);
-		let criticalWidth  = parseInt(documentStyles.getPropertyValue('--menu-requires-overflow-list').trim());
-		let okMinimumWidth = parseInt(documentStyles.getPropertyValue('--menu-can-be-restored-properly').trim());
-       
-	    let overflowContainer = document.getElementById('overflow-container');
-		let jollyButton = document.getElementById('jolly-button');
-		let menuItems   = document.getElementById('menu-items');
-		let menuParent  = menuItems.parentElement;	
-		
-		jollyButton.addEventListener('click',() =>{});  //initialize the click listener
-		
-		let b = new BoundsWatcher(
-		    () => window.innerWidth <= criticalWidth,
-		    () => { menuParent.removeChild(menuItems);
-					overflowContainer.appendChild(menuItems);
-					//assign jolly-button expand-collapse function
-					jollyButton.innerHTML="☰";
-					jollyButton.onclick = () =>{overflowContainer.hidden = !overflowContainer.hidden;};  
-				  },
-			() => window.innerWidth >= okMinimumWidth,
-			() => {
-					try{
-						overflowContainer.hidden = true;                  //the first time the second one it will throw an exception.	                  
-						overflowContainer.removeChild(menuItems);         //that's fine, cause on the first time 
-						menuParent.insertBefore(menuItems,jollyButton);   //these instructions don't need to be executed 
-					}catch(DOMException){}                                //insertBefore must be specified, else the menuItems is appended AFTER the jollyButton
-					//assign jolly-button home function
-					jollyButton.innerHTML='Home';
-					jollyButton.onclick = () =>{window.location.href="#";};
-			      }	
-		);
-		
-		window.addEventListener('resize', () => b.handleOverflowItems());
-		b.handleOverflowItems();      //run once to initialize the jolly-button
-	</script>
-
-    <!--ENABLE DYNAMIC PRESENTATION OF CONTENTS-->
-	<script>
-	    const observer = new IntersectionObserver((entries,observer) =>{
-		    entries.forEach(entry =>{
-			    if(entry.isIntersecting){
-				    entry.target.classList.toggle('observed');
-					observer.unobserve(entry.target);
-				}
-			});
-			}, {threshold:0.3}     //threshold percentage of visibility of the area, where the item is actually located inside, before action
-		); 
-		
-	    let toSpawns = document.querySelectorAll('.spawn-item');
-		for(const toSpawn of toSpawns)
-		    observer.observe(toSpawn);
-	</script>
-	
-	<!-- ENABLE THE PARALLAX EFFECT: MANAGE THE IMAGE SIZES DYNAMICALLY, AND HANDLE THE CASE OF A SCREEN WITH INSUFFICIENT WIDTH -->
-	<script>
-		    //the parallax can work ONLY if you hardwire the initial height of each image, absolute to the first layer, in the images themselves.
-			//if you, like me, think that you can dynamically set the inital vertical height of the images, you will fail.
-			//the reason: setting an initial location in pixel will desync one layer from another if the images are resized (and they are)
-			let parallaxContainer = document.getElementById("parallax-container");
-			let layers = parallaxContainer.querySelectorAll("img");
-			for(let i=0;i<layers.length;i++){   
-				layers[i].classList.add("img-fluid");   //the bootstrap property to dynamically resize image to not overflow the external bounds
-			    layers[i].style.zIndex   = -1;
-				layers[i].style.position = "absolute";  //the condition to correctly stack each image to their initial position.
-			}
-			
-			window.addEventListener('scroll', () => {
-				const scrollTop = -window.pageYOffset;
-				for(let i=0;i<layers.length;i++){   
-					const speed = parseFloat(layers[i].dataset.speed);
-					layers[i].style.transform = `translateY(${scrollTop * speed}px)`;
-				}
-		    });
-			
-			//parallaxContainer.style.zIndex = -1;
-			//parallaxContainer.style.height = "110vh";
-			
-			let minWidth = parseInt(documentStyles.getPropertyValue('--parallax-requires-overflow').trim());
-	        let okWidth  = parseInt(documentStyles.getPropertyValue('--parallax-can-be-restored').trim());
-			
-			let b2 = new BoundsWatcher(
-			    () => window.innerWidth <= minWidth,
-				() => {
-
-				    for(let i=0;i<layers.length;i++){
-					    layers[i].classList.toggle("img-fluid", false);
-					    layers[i].style.width = okWidth + "px";
-					}
-				},
-				() => window.innerWidth >= okWidth,
-				() => {
-				    for(let i=0;i<layers.length;i++){
-					    layers[i].classList.toggle("img-fluid", true);
-						layers[i].style.width = "auto";
-					}
-				}
-			);
-			
-			window.addEventListener('resize',() => b2.handleOverflowItems());
-            b2.handleOverflowItems();			
-		</script>
 </html>

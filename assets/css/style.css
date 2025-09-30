@@ -1,68 +1,122 @@
+/* NOT EVERY MACHINE POSSESSES THIS FONT */
+@font-face {
+    font-family: 'DokChampa';
+    src: local('DokChampa'), /* check if installed locally */
+         url('assets/fonts/DokChampa.ttf') format('truetype'); /* fallback to file */
+}
+
+/* PARAMETERS ABOUT RESIZING ITEMS MINIMUM RESOLUTION, COLORS USED IN THE SCHEME */
+:root{
+	--menu-requires-overflow-list: 1024;	
+	--menu-can-be-restored-properly: 1016;
+	--parallax-requires-overflow: 980;
+	--parallax-can-be-restored: 1024;
+	
+	--gradient: linear-gradient(90deg,#6987C0,#2F8F2E);    /* before: background: linear-gradient(90deg,#7474bf,#348ac7); */
+	--gradient-inv: linear-gradient(90deg,#2F8F2E,#6987C0);
+	
+	--low-opacity: rgba(255,255,255,.3);
+	--med-opacity: rgba(255,255,255,.6);
+	
+	--button-shadow: 0 3px 5px rgba(0,0,0,.4);
+	--button-glowin: inset 0 0 20px rgba(255,255,255,.9);
+	--button-glowin-transition: box-shadow 0.5s, transform 0.5s;
+	
+	--default-radius: 40px;
+}
+
 /*HERO SCREEN AND PARALLAX*/
 .parallax-container{
     z-index: -1;
     height: 110vh;
 }
-.parallax-container-title, .parallax-container-text{
-	font-family: DokChampa;
-	color: white;
-	text-shadow: 0 3px 10px black;
+.parallax-container-title{
+	/*NECESSARY PROPERTIES FOR A PERFECT H-V ALIGNMENT*/
+	position: absolute;           /*the only way to superimpose text on the nearest ancestor is to use absolute coordinates*/   
+    bottom: 35%; 
+    top: 35%;
+	left: 1%;	                  /*minimum acceptable margins before going in a newline*/
+	right: 1%;
 	
-	text-align: center;
+	color: white;
+	font-family: DokChampa;
+	font-size: 80px;
+	text-shadow: 0 3px 10px black;
+	text-align: center;	
 }
 
-.parallax-container-title{
-	font-size: 80px;
-}
 .parallax-container-text{
 	font-size: 20px;
 }
 
+.fullscreen-image img{           /*a 'monodimensional' parallax*/
+    width: 100%;
+    /* height: auto; */
+    /* display: block;	 */
+	z-index: -1;
+}
+
+.common-list{
+    text-align:left;
+}
+
 /*MAIN PAGE CONTAINERS*/
-.common-container{
-    /* background: linear-gradient(90deg,#7474bf,#348ac7); */
-	background: linear-gradient(90deg,#6987C0,#2F8F2E);
+.common-container{   
 	padding: 30px 60px 30px 60px;
 	
-	src: url('assets/fonts/DokChampa.ttf') format('ttf');  /*not every machine possesses this font*/
+	background: var(--gradient);
+	
+	color: white;
 	font-family: DokChampa;
 	font-size: 17px; 
-	color: white;
 	text-align: center;
 }
 
 @media (max-width: 768px) {      /*necessary,else everything gets squeezed*/
-  .common-container {
-    padding: 30px 8px 30px 8px;  /* reduce left/right padding */
-    font-size: 15px; /* optional: slightly smaller text */
-  }
-  .parallax-container{
-	  contain: layout paint;     /*it took me eight hours to understand that the only way to clip overflowing images in modern mobile browsers is just...this*/
-      height: 90vh;
-   } 
+    .common-container{
+		padding: 30px 12px 30px 12px;   /* reduce left/right padding */
+		font-size: 15px;              /* optional: slightly smaller text */
+	}
+	.common-overlaid-container{
+        padding: 20px 12px 20px 12px !important;	/*important overrides every possible rule that can be applied by class composition*/	
+    }	
+	.parallax-container{
+		height: 90vh;
+		contain: layout paint;         /*it took me eight hours to understand that the only way to clip overflowing images in modern mobile browsers is just...this*/
+	} 
+	.expandable-container-text{
+		padding: 0 !important;         /*avoid squashing text, in case of nested items*/
+	}
 }
 
 .common-overlaid-container{
-	background: rgba(255,255,255,.30);
-    padding: 20px 20px 20px 20px;	
-	border-radius: 40px;
+	border-radius: var(--default-radius);
 	box-shadow: 0 12px 12px rgba(0,0,0,.3);
+    padding: 20px 20px 20px 20px;
+	background: var(--low-opacity);	
 }
 .common-overlaid-container img{
-	border-radius: 40px;
+	border-radius: var(--default-radius);
 }
 
+
 .common-button{
-	border-radius: 40px;
+	border-radius: var(--default-radius);
+	box-shadow: var(--button-shadow);
     padding: 20px;
-    font-weight: bold;	
-	box-shadow: 0 3px 3px rgba(0,0,0,.3);
+    font-weight: bold;		
 }
 
 .common-iframe{
-	border-radius: 40px;
 	width: 400px;
     height:	400px;
+	border-radius: var(--default-radius);
+}
+
+.style-square-image img{
+	width: 96px;
+    height: 96px;	
+	border-radius: var(--default-radius);
 }
 
 .block-container{
@@ -86,11 +140,6 @@
     gap: 5px;	
 }
 
-.style-square-image img{
-	border-radius: 40px;
-	width: 96px;
-    height: 96px;	
-}
 
 .put-on-right-side{
 	margin-left: auto;
@@ -132,44 +181,65 @@
 
 
 /*UPPER MAIN MENU AND ASSOCIATED OVERFLOW LIST*/
-.common-menu-button{
-	border-radius: 40px;
-    padding: 20px;
-    font-weight: bold;	
-	color: black;
-	background: rgba(255,255,255,.25);
-	border: none;
+.common-button:hover,.common-menu-button:hover,.menu-main-button:hover{	
+	box-shadow: var(--button-glowin);
+	transition: var(--button-glowin-transition);
+	
+	background: var(--gradient);
+	color: white;
 }
-.common-menu-button:hover{
-	background: #b0b0fb;	
-	box-shadow: 0 10px 10px rgba(0,0,0,.3);
+.common-button:active,.common-menu-button:active,.menu-main-button:active{	
+	box-shadow: var(--button-glowin);
+	transition: var(--button-glowin-transition);
+	
+	background: var(--gradient-inv);
+	color: white;
 }
 
-.common-menu img{   /*tells what to do if there's an image inside*/
-	width: 100px;
-	height: 56px;
-	border-radius: 10px;	
+.common-menu-button{
+	border: none;
+	border-radius: var(--default-radius);
+    padding: 20px;	
+	
+	background: var(--low-opacity);	
+	color: black;
+	font-weight: bold;
 }
+
+.menu-main-button{          /*the title is a link, and an html button is used, not an anchor*/
+	border: none;
+	border-radius: var(--default-radius);
+    
+	background: none;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+}	
 
 .common-menu{
-	background: rgba(255,255,255,.60);
-	
+	z-index: 10;	
 	position: fixed;
+	min-height: 80px;
 	top: 30px;
 	left: 30px;
 	right: 30px;
-	
-	font-family: DokChampa;
-    font-size: 16px;
-	font-weight: bold;
 	
 	display: flex;    /*necessary, else items are listed vertically*/
 	align-items: left;
 	gap: 10px;
 	padding: 10px;
 	
-	z-index: 100;
-	min-height: 80px;
+	background: var(--med-opacity);
+	
+	font-family: DokChampa;
+    font-size: 16px;
+	font-weight: bold;
+}
+
+.common-menu img{   /*what to do with images inside any of its children*/
+	width: 100px;
+	height: 56px;
+    border-radius: 10px;	
 }
 
 .overflow-list{
@@ -179,28 +249,17 @@
 	right: 30px;
 }
 
-:root{
-	--menu-requires-overflow-list: 1024;	
-	--menu-can-be-restored-properly: 1016;
-	--parallax-requires-overflow: 980;
-	--parallax-can-be-restored: 1024;
-}
-
-.menu-main-button{          /*the title is a link, and an html button is used, not an anchor*/
-	font-size: 16px;
-	font-weight: bold;
-	background: none;
-	border: none;
-}
-
 /*ELEMENTS WITH EXPANDABLE CONTENTS*/
 
 .expandable-container{}                 /*no definition so far. just to be used by js querySelector*/
 
-.expandable-container-title{
+.expandable-container-title,.expandable-container-title-plain{
 	cursor: pointer;
+}  
+.expandable-container-title{
 	font-weight: bold;	
-}                                       /*append a sign after the existing content*/
+}
+                                     /*append a sign after the existing content*/
 /*.expandable-container-title::after{  
 	content: '+';
 	font-size: 20px;
@@ -218,18 +277,18 @@
 /*.expandable-container.clicked .expandable-container-title::after{
     transform: rotate(45deg);
 }*/
-.expandable-container.clicked .expandable-container-text{
-    display: block;
+.expandable-container.clicked > .expandable-container-text{   /*select ONLY the DIRECT CHILD of expandable-container*/
+    display: block;                                           /*the only way to not break recursive usage*/
 }
 
 /*DYNAMIC LOADING OF CONTENTS*/
 
-.spawn-item{
+.spawn-element{
     opacity: 0;
     transform: translateY(80px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
-.spawn-item.observed{
+.spawn-element.observed{
 	opacity: 1;
 	transform: translateY(0);
 }
