@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+	    <!--Designed by Damiano Martucci. Whatsapp +39 342 089 2942-->
+	
+		<title>Centro Equilibrio Psicofisico di Lauretana - insert page name here</title>
+		<!--this unicode charset allows to display correctly every character, including symbols, characters and accents from
+        other languages, and emojis. HTML5 supports it -->
+		<meta charset="utf-8"> 
+		
+		 <!--fundamental statement, to ensure that mobile devices screens render the website
+		     appropriately, avoiding zooming out that causes the page to look “tiny but complete”.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!--this webpage borrows primitive resources from Bootstrap 4. It's lighter than 5 and is enough for this project.
+		    Associated dependencies need to be loaded:-->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		
+		<!-- the file containing the custom styling of this page -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		
+		<!-- STEP 1: the scripts to handle manipulation of graphic elements -->
+		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
+		<script src="assets/js/model/BoundsWatcher.js"></script>
+		<script src="assets/js/model/FormSubmitter.js"></script>
+	</head>
+
+    <body>
+	
+		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
+		<script>
+		    const gee = new GraphicElementsEnabler();
+		</script>
+	
+	    <!-- the main menu is added by the script -->
+		
+	    <div class="common-container add-high-vert-spacing"></div>
+		<div class="common-container add-high-vert-spacing"></div>
+	
+		<div class="common-container">
+		<!-- insert your contents here -->
+		
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+				<div class="expandable-container-title">title</div>
+				<div class="expandable-container-text"> 
+						text
+				</div>
+			</div>
+			
+			<div id="insert-form-as-inner-html" class="common-overlaid-container spawn-element">
+			</div>
+		</div>
+		
+		<!-- the footer note is added by the script -->
+	
+	</body>
+</html>

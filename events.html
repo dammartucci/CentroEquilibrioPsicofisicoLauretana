@@ -25,7 +25,7 @@
 		<script src="assets/js/model/FormSubmitter.js"></script>
 	</head>
 
-    <body>
+    <body class="common-container">
 	
 		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
 		<script>
@@ -34,10 +34,9 @@
 	
 	    <!-- the main menu is added by the script -->
 		
-	    <div class="common-container add-high-vert-spacing"></div>
-		<div class="common-container add-high-vert-spacing"></div>
+	    <div class="common-container add-hig-vert-spacing"></div>
 	
-	    <div class="common-container add-high-vert-spacing">
+	    <div class="common-container add-med-vert-spacing">
 	    <h1>Archivio degli eventi</h1>
 		<p>Qui puoi consultare la lista degli eventi in corso, e passati.<br>
 		   I primi sono i più recenti.<br>
@@ -52,7 +51,7 @@
 				 <div class="col-md-6">
 					 <h2>Muoversi con Fluidità con l'uso del Sostegno</h2>
 					 <h3>Ciclo di quattro lezioni a distanza: 18:30 - 19:30</h3>
-					  <i>dal 16/10/2025 al 06/11/2025, Registrazioni disponibili su richiesta.</i>
+					  <i>dal 16/10/2025 al 06/11/2025, Prenotazione obbligatoria.</i>
 				 </div>
 				 <div class="col-md-6">
 					 <img src="assets/images/events/event[11].webp">
@@ -68,6 +67,45 @@
 				 <i><br>Prenotazioni entro il 11/10/2025. Contributo: 65€</i> 
 			</div>
 			<button id="reserve-spot-button" class="common-container common-button add-min-spacing">Prenota</button>			
+			</div>
+
+			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+			    <div class="expandable-container-title-plain row  align-items-center">
+				     <div class="col-md-6">
+				         <h2>Reimpadronirsi del proprio corpo con il Metodo Feldenkrais</h2>
+						 <h3>Lezione a distanza: 18:45 - 19:45</h3>
+						  <i>9/10/2025, evento gratuito, Prenotazione opzionale.</i>
+					 </div>
+					 <div class="col-md-6">
+					     <img src="assets/images/events/genericevent.webp">
+					 </div>
+				</div>
+				<div class="expandable-container-text">
+				    Che cos'è il Metodo, e come può esserti utile nella vita di tutti i giorni? Scoprilo con questa lezione! 
+					Avrai l'occasione di conoscere Lauretana, insegnante certificata.
+					<i><br>Prenotazioni entro il 8/10/2025. Contributo: 0€</i> 
+				</div>
+                <button id="free-event" class="common-container common-button add-min-spacing">Ottieni il collegamento</button>
+                <script>
+				    let but = document.getElementById("free-event");
+					but.addEventListener("click",()=>{					
+					    let info  = 
+						   "Link : https://us02web.zoom.us/j/82746123103?pwd=yrlRb6Jjce9EdKbq9CTfGesOJ6kP3V.1<br>" +
+						   "ID : 827 4612 3103<br>" +
+						   "Password  : 002594";
+
+						let window2  = window.open("free-event-landing-page.html");
+						let interval = setInterval(()=>{
+						    try{
+							    let element = window2.document.getElementById("async_data_transmission");  //this works ONLY if using http://, not file:// !!
+						        if(element)
+						            element.innerHTML = info;
+							    else
+							        clearInterval(interval);
+							}catch(e){}
+						}, 1000);	
+                    });						
+				</script>				
 			</div>   
 		
 		    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
@@ -75,7 +113,7 @@
 				     <div class="col-md-6">
 				         <h2>L'attività e la condizione di riposo</h2>
 						 <h3>Ciclo di quattro lezioni a distanza: 21:00 - 22:15</h3>
-						  <i>dal 30/03/2022 al 20/04/2022. Registrazioni disponibili su richiesta.</i>
+						  <i>dal 30/03/2022 al 20/04/2022. Prenotazione obbligatoria.</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[10].webp">
@@ -96,7 +134,7 @@
 				     <div class="col-md-6">
 				         <h2>Meditazione Silenziosa</h2>
 						 <h3>Lezione in presenza: 10:00 - 11:15</h3>
-						  <i>09/08/2021 e 23/08/2021, additional info.</i>
+						  <i>09/08/2021 e 23/08/2021, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[9].webp">
@@ -115,7 +153,7 @@
 				     <div class="col-md-6">
 				         <h2>Meditazione Silenziosa e Trattamenti Reiki</h2>
 						 <h3>Lezione in presenza: 10:00 - 11:15; poi 11:30 - 13:30</h3>
-						  <i>07/11/2020 e 21/11/2020, additional info.</i>
+						  <i>07/11/2020 e 21/11/2020, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[8].webp">
@@ -162,7 +200,7 @@
 				     <div class="col-md-6">
 				         <h2>Work in Progress Psicofisico</h2>
 						 <h3>Lezione a distanza: 15:00 - 18:00</h3>
-						  <i>29/02/2020, additional info.</i>
+						  <i>29/02/2020, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[6].webp">
@@ -179,7 +217,7 @@
 				     <div class="col-md-6">
 				         <h2>La fisica quantistica in due parti</h2>
 						 <h3>Lezione a distanza: 15:30 - 16:30</h3>
-						  <i>01/02/2020 e 15/02/2020, additional info.</i>
+						  <i>01/02/2020 e 15/02/2020, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[5].webp">
@@ -204,7 +242,7 @@
 				     <div class="col-md-6">
 				         <h2>Conferenza di fisica quantistica - Il Big Bang e la Creazione dell'Universo</h2>
 						 <h3>Lezione in presenza: 15:30 - 17:00</h3>
-						  <i>30/11/2019, additional info.</i>
+						  <i>30/11/2019, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[4].webp">
@@ -234,7 +272,7 @@
 				     <div class="col-md-6">
 				         <h2>Reiki: corso di formazione per operatori di primo livello</h2>
 						 <h3>Lezione in presenza: 09:30 - 10:30</h3>
-						  <i>dal 15/02/2014 al 16/02/2014, additional info.</i>
+						  <i>dal 15/02/2014 al 16/02/2014, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[3].webp">
@@ -259,7 +297,7 @@
 				     <div class="col-md-6">
 				         <h2>Intensivo di Yoga sui Chakra - Manipura, il Potere Personale</h2>
 						 <h3>Lezione in presenza: 10:00 - 13:30</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, additional info.</i>
+						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[2].webp">
@@ -281,7 +319,7 @@
 				     <div class="col-md-6">
 				         <h2>Intensivo di Yoga sui Chakra - Svadisthana, le Emozioni</h2>
 						 <h3>Lezione in presenza: 10:00 - 13:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, additional info.</i>
+						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/event[1].webp">
@@ -299,7 +337,7 @@
 				     <div class="col-md-6">
 				         <h2>Meditazione Silenziosa e Trattamenti Reiki</h2>
 						 <h3>Lezione in presenza: 11:30 - 13:00, 15:00 - 18:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, additional info.</i>
+						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/genericevent.webp">
@@ -318,7 +356,7 @@
 				     <div class="col-md-6">
 				         <h2>Title</h2>
 						 <h3>lesson mode description: 00:00 - 00:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, additional info.</i>
+						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
 					 </div>
 					 <div class="col-md-6">
 					     <img src="assets/images/events/genericevent.webp">
