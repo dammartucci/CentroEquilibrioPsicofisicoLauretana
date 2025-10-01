@@ -2,7 +2,7 @@
 @font-face {
     font-family: 'DokChampa';
     src: local('DokChampa'), /* check if installed locally */
-         url('assets/fonts/DokChampa.ttf') format('truetype'); /* fallback to file */
+         url('../fonts/DokChampa.ttf') format('ttf'); /* fallback to file */
 }
 
 /* PARAMETERS ABOUT RESIZING ITEMS MINIMUM RESOLUTION, COLORS USED IN THE SCHEME */
