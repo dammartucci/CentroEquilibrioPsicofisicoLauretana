@@ -1,6 +1,8 @@
+//EDIT THESE VALUES BASING ON YOUR SPECIFIC NEEDS
 const KEY       = "TFhtYm93MSlBfS6BB";
 const SERVICEID = "service_qkz3z3f";
 const CONTACTID = "template_0fwkdrp";
+//-----------------------------------------------
 
 const MESSAGES_PER_USER = 2;
 const DAYS_TO_RESET     = 14; 

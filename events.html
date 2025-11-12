@@ -23,6 +23,9 @@
 		<script src="assets/js/view/GraphicElementsEnabler.js"></script>
 		<script src="assets/js/model/BoundsWatcher.js"></script>
 		<script src="assets/js/model/FormSubmitter.js"></script>
+		
+		<script src="assets/js/view/DecentralizedServer.js"></script>
+		<script src="assets/js/view/EventsViewer.js"></script>
 	</head>
 
     <body class="common-container">
@@ -34,9 +37,9 @@
 	
 	    <!-- the main menu is added by the script -->
 		
-	    <div class="common-container add-hig-vert-spacing"></div>
+	    <div class="add-hig-vert-spacing"></div>
 	
-	    <div class="common-container add-med-vert-spacing">
+	    <div class="add-med-vert-spacing">
 	    <h1>Archivio degli eventi</h1>
 		<p>Qui puoi consultare la lista degli eventi in corso, e passati.<br>
 		   I primi sono i più recenti.<br>
@@ -44,335 +47,18 @@
 		</p>
 		</div>
 		
-		<div id="events" class="common-container">
+		<div id="events"></div>
 		
-		<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			<div class="expandable-container-title-plain row  align-items-center">
-				 <div class="col-md-6">
-					 <h2>Muoversi con Fluidità con l'uso del Sostegno</h2>
-					 <h3>Ciclo di quattro lezioni a distanza: 18:30 - 19:30</h3>
-					  <i>dal 16/10/2025 al 06/11/2025, Prenotazione obbligatoria.</i>
-				 </div>
-				 <div class="col-md-6">
-					 <img src="assets/images/events/event[11].webp">
-				 </div>
-			</div>
-			<div class="expandable-container-text">
-				La terra è solida.
-				Premendo su di essa, abbiamo il sostegno per assumere ogni posizione e compiere qualsiasi movimento.
-				Usando al meglio questo principio fondamentale possiamo potenziare il nostro corpo e la nostra forza.
-				Consentiamo alle ossa di nutrirsi e rigenenarsi.
-				Ci radichiamo e stabilizziamo emotivamente.
-				Tutto ciò grazie all'energia che con tale principio possiamo assorbire dalla Terra, il nostro pianeta.
-				 <i><br>Prenotazioni entro il 11/10/2025. Contributo: 70€</i> 
-			</div>
-			<button id="reserve-spot-button" class="common-container common-button add-min-spacing">Prenota</button>			
-			</div>
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Reimpadronirsi del proprio corpo con il Metodo Feldenkrais</h2>
-						 <h3>Lezione a distanza: 18:45 - 19:45</h3>
-						  <i>9/10/2025, evento gratuito, Prenotazione opzionale.</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/genericevent.webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Che cos'è il Metodo, e come può esserti utile nella vita di tutti i giorni? Scoprilo con questa lezione! 
-					Avrai l'occasione di conoscere Lauretana, insegnante certificata.
-					<i><br>Prenotazioni entro il 8/10/2025. Contributo: 0€</i> 
-				</div>
-                <button id="free-event" class="common-container common-button add-min-spacing">Ottieni il collegamento</button>
-                <script>
-				    let but = document.getElementById("free-event");
-					but.addEventListener("click",()=>{					
-					    let info  = 
-						   "Link : https://us02web.zoom.us/j/82746123103?pwd=yrlRb6Jjce9EdKbq9CTfGesOJ6kP3V.1<br>" +
-						   "ID : 827 4612 3103<br>" +
-						   "Password  : 002594";
-
-						let window2  = window.open("free-event-landing-page.html");
-						let interval = setInterval(()=>{
-						    try{
-							    let element = window2.document.getElementById("async_data_transmission");  //this works ONLY if using http://, not file:// !!
-						        if(element)
-						            element.innerHTML = info;
-							    else
-							        clearInterval(interval);
-							}catch(e){}
-						}, 1000);	
-                    });						
-				</script>				
-			</div>   
-		
-		    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>L'attività e la condizione di riposo</h2>
-						 <h3>Ciclo di quattro lezioni a distanza: 21:00 - 22:15</h3>
-						  <i>dal 30/03/2022 al 20/04/2022. Prenotazione obbligatoria.</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[10].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Lezioni esperienziali e di approfondimento.<br>
-					Ritrovare la condizione di riposo e saperla integrare durante le Attività del quotidiano è un’Arte che 
-					consente alla Mente di ritornare alla propia centralità attenuando condizioni di stress inutili e 
-					consentendo la rigenerazione di tutto il sistema.
-					 <i><br>Prenotazioni entro il 14/03/2022. Contributo: 60€</i> 
-				</div>
-               	
-			</div>  
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Meditazione Silenziosa</h2>
-						 <h3>Lezione in presenza: 10:00 - 11:15</h3>
-						  <i>09/08/2021 e 23/08/2021, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[9].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Una semplice, ma non banale, sessione collettiva, in cui cogliamo l'occasione per riallineare 
-					le intenzioni e i chakra.
-					<i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                
-			</div>
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Meditazione Silenziosa e Trattamenti Reiki</h2>
-						 <h3>Lezione in presenza: 10:00 - 11:15; poi 11:30 - 13:30</h3>
-						  <i>07/11/2020 e 21/11/2020, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[8].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Dopo una sessione di meditazione, per riallineare i chakra, si procede a una lezione di Reiki,
-					dove si mostra come manipolare le energie sottili a fine di guarigione.
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                
-			</div>   			
-			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>La potenza del bacino e dell'addome</h2>
-						 <h3>Lezione in presenza: 10:00 - 13:30</h3>
-						  <i>22/03/2020, Seminario Esperienziale a tema Metodo Feldenkrais.</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[7].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    In questo Seminario esploreremo, attraverso percorsi di movimento adatti
-					ad ogni persona, il Bacino e la sua possibilità di movimento che si articola 
-					nelle Anche e nella Colonna Lombare. Vedremo come il Bacino sia un Centro Motore 
-					e Gravitazionale con la Funzione di Sostegno, di Equilibrio e di Potenza connesso a tutto il corpo .
-					Si lavorerà con i muscoli “addominali” imparando a differenziarli con il
-					resto dell’Addome che comprende le Pelvi, gli Psoas e il Diaframma.
-					Ripristinare la funzione del Bacino significa prevenire i mal di schiena ed
-					attenuare le contratture permanenti grazie ad una migliore distribuzione
-					del tono muscolare, avere la postura bilanciata con la testa ben sostenuta e 
-					vigore e potenza in tutto il sistema mente-corpo.
-
-					<i><br>Prenotazioni entro il 18/03/2020. Contributo: 45€</i> 
-				</div>
-                
-			</div>  
-
-			 <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Work in Progress Psicofisico</h2>
-						 <h3>Lezione a distanza: 15:00 - 18:00</h3>
-						  <i>29/02/2020, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[6].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Tema trattato: “L’equilibrio“: (il sostegno fluttuante quale elemento vitale delle relazioni).
-					<i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>		
-			</div> 
-
-			 <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>La fisica quantistica in due parti</h2>
-						 <h3>Lezione a distanza: 15:30 - 16:30</h3>
-						  <i>01/02/2020 e 15/02/2020, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[5].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    La fisica quantistica è stata la protagonista indiscussa degli ultimi cento anni, 
-					ma ancora adesso, le sue implicazioni scientifiche e filosofiche non sono conosciute. 
-					Nella prima parte vedremo i contributi dei principali protagonisti, spiegando i meccanismi 
-					che rendono questa disciplina simile alle spiegazioni che molti mistici e frequentatori 
-					dei mondi spirituali danno nella nostra realtà. Nella seconda parte vedremo alcune implicazioni 
-					della fisica quantistica i cui sviluppi sono in corso e di cui si ignora la portata. Tra questi 
-					parleremo di Entaglement, crittografia quantistica e Universo a mille mondi.
-
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-            	
-			</div>
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Conferenza di fisica quantistica - Il Big Bang e la Creazione dell'Universo</h2>
-						 <h3>Lezione in presenza: 15:30 - 17:00</h3>
-						  <i>30/11/2019, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[4].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    Il Professor Gianluigi Colaiacomo fornirà una panoramica della teoria del Big Bang a tutti coloro 
-					che desiderano comprendere come stia evolvendo la scienza e quanta rilevanza possa avere in un percorso 
-					yogico o di crescita spirituale.<br>
-					Non sono necessarie conoscenzescientifiche particolari, ma solo curiosità e disponibilità all’ascolto.<br> 
-					Questo seminario e’ di tipo divulgativo, diretto a tutti.<br>
-					Il seminario inizierà con un riassunto di alcuni argomenti generali di fisica moderna trattati in un seminario 
-					precedente.<br>
-					Verrà, quindi, presentata la attuale teoria fisica del Big Bang, ossia la teoria dell’evoluzione dell’universo.
-					Parleremo delle nostre conoscenze dell’universo attuale e di come sia possibile risalire alla sua conformazione nei 
-					primi istanti di vita.<br>
-		            Parleremo delle sue diverse fasi di evoluzione e di come si sia trasformato nell’universo in espansione che vediamo attorno a noi.
-					Verrà’ esaminato l’istante di creazione/emanazione dell’universo e la relazione con le sue prime fasi.
-					In una relazione tra il microcosmo e il macrocosmo si esamineranno le possibilità di un universo olografico.
-					 <i><br>Prenotazioni entro il 28/11/2019. Contributo: 00€</i> 
-				</div>
-                	
-			</div>   
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Reiki: corso di formazione per operatori di primo livello</h2>
-						 <h3>Lezione in presenza: 09:30 - 10:30</h3>
-						  <i>dal 15/02/2014 al 16/02/2014, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[3].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    “Il piano fisico”
-					Energia di auto guarigione naturale per sé stessi e per gli altri.
-					Introduzione alla storia del Maestro Mikao Usui, padre fondatore del Reiki.
-					Insegnamento dei suoi cinque principi e delle sue tecniche di base.
-					Si ricevono 4 iniziazioni per l’attivazione del canale energetico
-					principale che consente la trasmissione del Reiki a sé stessi
-					attraverso l’Autotrattamento ed agli altri, l’equilibratura dei
-					Chakra, i Trattamenti brevi ed i Trattamenti specifici.
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-               		
-			</div>
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Intensivo di Yoga sui Chakra - Manipura, il Potere Personale</h2>
-						 <h3>Lezione in presenza: 10:00 - 13:30</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[2].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				   Il suo simbolo un triangolo, il suo colore il rosso. Il suo elemento è il fuoco. 
-				   Corrisponde all’apparato digestivo, legato alla nostra capacità di assimilare e metabolizzare 
-				   gli stimoli esterni, da esso dipende la capacità di modificare la realtà ordinaria. 
-				   E’ la sede del potere interiore, della volontà, dell’autocontrollo e dell’autoaffermazione. 
-				   In questo Chakra  si conciliano  le opposte polarità del voler dominare e del non saper reagire.
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                		
-			</div>
-
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Intensivo di Yoga sui Chakra - Svadisthana, le Emozioni</h2>
-						 <h3>Lezione in presenza: 10:00 - 13:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/event[1].webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    text here
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                		
-			</div> 
-
-			 <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Meditazione Silenziosa e Trattamenti Reiki</h2>
-						 <h3>Lezione in presenza: 11:30 - 13:00, 15:00 - 18:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/genericevent.webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    text here
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                	
-			</div>   
-			
-		    
-            <!--div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-			    <div class="expandable-container-title-plain row  align-items-center">
-				     <div class="col-md-6">
-				         <h2>Title</h2>
-						 <h3>lesson mode description: 00:00 - 00:00</h3>
-						  <i>dal 00/00/0000 al 00/00/0000, info....</i>
-					 </div>
-					 <div class="col-md-6">
-					     <img src="assets/images/events/genericevent.webp">
-					 </div>
-				</div>
-				<div class="expandable-container-text">
-				    text here
-					 <i><br>Prenotazioni entro il 00/00/0000. Contributo: 00€</i> 
-				</div>
-                <button class="common-container common-button add-min-spacing">Prenota</button>			
-			</div-->   
-		
-		</div>
-		
-		<!-- footer note loaded by the script -->
-
 	</body>
-
+	
+	<script>
+	    const dv = new EventsViewer();
+	    const ds = new DecentralizedServer(dv);
+		
+		(async() => {
+			await ds.loadArchive("assets/js/model/events-it.json");
+			ds.setDisplayElementsDynamically(true,"events");
+		})();		
+	</script>
+	
 </html>

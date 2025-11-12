@@ -25,7 +25,7 @@
 		<script src="assets/js/model/FormSubmitter.js"></script>
 	</head>
 
-    <body class="common-container">
+    <body>
 	
 		<!-- STEP 2: ENABLE THE GRAPHIC ELEMENTS -->
 		<script>
@@ -33,15 +33,16 @@
 		</script>
 	
 	    <!-- the main menu is added by the script -->
-		
-		<div class="common-container add-hig-vert-spacing"></div>
+		<div class="common-container">
+		    <div class="add-hig-vert-spacing"></div>
+		</div>
 		
 		<div class="common-container">
 		    <h3>Con questa lezione gratuita avrai l'occasione di conoscere un nuovo percorso per la tua vita.
 			Lauretana sarà lieta di accoglierti nella sua Classe, se vorrai proseguire. 
 			</h3> 
 			
-			<div class="common-container add-hig-vert-spacing"></div>
+			<div class="add-hig-vert-spacing"></div>
 			
 			Le informazioni per la riunione sono le seguenti:
 			
@@ -50,7 +51,7 @@
 			</div>
 		
 			
-			<div class="common-container add-med-vert-spacing"></div>
+			<div class="add-med-vert-spacing"></div>
 			
 			Chiediamo come prerequisito di aver installato l'applicazione Zoom, sia su dispositivo mobile che su computer, 
 			poiché in questo modo le risorse del tuo sistema vengono usate in modo più efficiente, permettendo una migliore 
@@ -61,50 +62,55 @@
 			Chiediamo inoltre una cosa molto importante: la puntualità.<br> 
 			È infatti essenziale per garantire efficienza, e un'esperienza di apprendimento eccellente per tutti.<br>
 			
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
 				<div class="expandable-container-title">Qual è il margine massimo accettabile di ritardo?</div>
-				<div class="expandable-container-text"> 
-				    È sempre di quindici minuti. L'insegnante, in quel tempo, è occupato 
-					a fare l'introduzione di ciò che sarà trattato nella lezione. 
+				<div class="expandable-container-content"> 
+					<text>È sempre di quindici minuti. L'insegnante, in quel tempo, è occupato 
+					a fare l'introduzione di ciò che sarà trattato nella lezione. </text>
 				</div>
 			</div>
+			
+			<!--div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+				<div class="expandable-container-title">Gestione Partita IVA</div>
+				<div class="expandable-container-content"> 
+					<text>text</text>
+				</div>
+			</div-->
             
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
 				<div class="expandable-container-title">Che cosa accade se supero il margine di ritardo?</div>
-				<div class="expandable-container-text"> 
+				<div class="expandable-container-content"> 
 				    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 						<div class="expandable-container-title">In presenza</div>
-						<div class="expandable-container-text"> 
+						<div class="expandable-container-content"><text>
 				            Non è ancora stato deciso. Si vedrà sul momento.
-						</div>
+						</text></div>
 					</div>
 					
 					<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 						<div class="expandable-container-title">A distanza</div>
-						<div class="expandable-container-text"> 
+						<div class="expandable-container-content"><text>
 				            Non sarà più possibile unirsi alla riunione. Sarà tuttavia, al termine di essa, 
 							inviato un link per vedere una ripetizione della stessa. 
-						</div>
+						</text></div>
 					</div>   
 				</div>
 			</div>
 
 			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 				<div class="expandable-container-title">Ma tutto ciò non è estremo?</div>
-				<div class="expandable-container-text"> 
+				<div class="expandable-container-content"><text>
 				    Ecco che cosa dice l'insegnante, Lauretana, a riguardo:<br>
 					<i>"È vero, sembra così, ma credimi, per esperienza, è davvero insopportabile, sia per me che per gli altri, 
 					essere interrotti nella concentrazione da qualcuno che si presenta in ritardo, che, inoltre, avrà difficoltà 
 					a capire che cosa si sta facendo, peggiorando così sia la sua che l'altrui qualità della lezione".</i>
-				</div>
+				</text></div>
 			</div>
 			
-			<div class="common-container add-hig-vert-spacing">
-			    E per qualsiasi domanda, compila questo form:
-			</div>
-
-			<div id="insert-form-as-inner-html" class="common-overlaid-container add-hig-spacing spawn-item"></div>
-			
+			<div class="common-container">
+			    <div class="add-hig-vert-spacing">E per qualsiasi domanda, compila questo form:</div>
+				<div id="inserts-form-here" class="common-overlaid-container add-hig-spacing spawn-element"></div>
+			</div>	
 		</div>
 		
 		<!-- the footer note is added by the script -->

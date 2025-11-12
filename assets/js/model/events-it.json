@@ -1,0 +1,305 @@
+[
+    {  
+	    "$menu":{
+		    "empty":"nessun risultato",
+            "end": "fine dei risultati"			
+	    },
+		
+	    "from": "da",
+	    "to": "a",
+		"bookingLimit": "Prenotazioni entro il",
+		"costType": "Contributo",
+	    "currency": "€",
+        "reserveSpot": "Prenota",
+        "eventInfo": "Ottieni informazioni"		
+	},
+	
+	{},
+	
+	{
+		"$aux":{
+			"available": ["si","no"]
+		}
+	},
+	
+	{   
+	    "$aux":{
+		    "key":13,
+			"available": "si"
+		},
+	    "title": "Radicarsi, essere solidi attraverso il Metodo Feldenkrais",
+		"lessonCycle": "Ciclo di quattro lezioni",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:30",
+		"timeTo": "19:30",
+		"dateFrom": "13/11/2025",
+		"dateTo": "13/12/2025",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/11/2025",
+		"imageDirs": ["assets/images/events/event[13].webp"],
+
+        "description": "Il nostro corpo è il mezzo con cui sperimentiamo questo mondo tridimensionale.<br>Il sistema nervoso e lo scheletro sono strettamente connessi. È fondamentale lasciare che sia lo scheletro a sostenerci, smettendo di gravare sulla muscolatura, che si deve attivare solo quando occorre.<br>Percepiamo i nostri organi, che sono connessi allo scheletro, e risentono di posture errate.<br>Radichiamoci, sentiamoci solidi, diventiamo consistenti!<br>Così miglioriamo la salute ossea, la coordinazione, ed espandiamo la nostra percezione e consapevolezza.",
+		"cost": "60"
+	},
+
+    {
+		"$aux":{
+			"key":12,
+			"available": "si"
+		},
+	    "title": "Muoversi con fluidità con l'uso del Sostegno",
+		"lessonCycle": "Ciclo di quattro lezioni",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:30",
+		"timeTo": "19:30",
+		"dateFrom": "6/10/2025",
+		"dateTo": "06/11/2025",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "11/10/2025",
+		"imageDirs": ["assets/images/events/event[12].webp"],
+
+        "description": "La terra è solida. Premendo su di essa, abbiamo il sostegno per assumere ogni posizione e compiere qualsiasi movimento. Usando al meglio questo principio fondamentale possiamo potenziare il nostro corpo e la nostra forza. Consentiamo alle ossa di nutrirsi e rigenenarsi. Ci radichiamo e stabilizziamo emotivamente. Tutto ciò grazie all'energia che con tale principio possiamo assorbire dalla Terra, il nostro pianeta.",		
+	    "cost": "70"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":11,
+			"available": "si"
+		},
+	    "title": "Reimpadronirsi del proprio corpo con il Metodo Feldenkrais",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "9/10/2025",
+		"dateTo": "9/10/2025",
+		"bookingOption": "Prenotazione opzionale",
+		"bookingDateLimit": "8/10/2025",
+		"imageDirs": ["assets/images/events/genericevent.webp"],
+
+        "description": " Che cos'è il Metodo, e come può esserti utile nella vita di tutti i giorni? Scoprilo con questa lezione!<br>Avrai l'occasione di conoscere Lauretana, insegnante certificata.",
+		"cost": "0",
+		"eventInfo": "Link : https://us02web.zoom.us/j/82746123103?pwd=yrlRb6Jjce9EdKbq9CTfGesOJ6kP3V.1<br>ID : 827 4612 3103<br>Password  : 002594"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":10,
+			"available": "si"
+		},
+	    "title": "L'attività e la condizione di riposo",
+		"lessonCycle": "Ciclo di quattro lezioni",
+		"lessonMode":  "a distanza",
+		"timeFrom": "21:00",
+		"timeTo": "22:15",
+		"dateFrom": "30/03/2022",
+		"dateTo": "20/04/2022",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "14/03/2022",
+		"imageDirs": ["assets/images/events/event[10].webp"],
+
+        "description": "Lezioni esperienziali e di approfondimento.<br>Ritrovare la condizione di riposo e saperla integrare durante le Attività del quotidiano è un’Arte che consente alla Mente di ritornare alla propia centralità attenuando condizioni di stress inutili e consentendo la rigenerazione di tutto il sistema.",
+		"cost": "60"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":9,
+			"available": "si"
+		},
+	    "title": "Meditazione Silenziosa",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "10:00",
+		"timeTo": "11:15",
+		"dateFrom": "09/08/2021",
+		"dateTo": "23/08/2021",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "07/08/2021",
+		"imageDirs": ["assets/images/events/event[9].webp"],
+
+        "description": "Sessione collettiva, in cui cogliamo l'occasione per riallineare le intenzioni e i chakra.",
+		"cost": "50"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":8,
+			"available": "si"
+		},
+	    "title": "Meditazione Silenziosa e Trattamenti Reiki",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "10:00",
+		"timeTo": "11:15",
+		"dateFrom": "07/11/2020",
+		"dateTo": "21/11/2020",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "05/11/2020",
+		"imageDirs": ["assets/images/events/event[8].webp"],
+
+        "description": "Una semplice, ma non banale, Dopo una sessione di meditazione, per riallineare i chakra, si procede a una lezione di Reiki, dove si mostra come manipolare le energie sottili a fine di guarigione.",
+		"cost": "50"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":7,
+			"available": "si"
+		},
+	    "title": "La potenza del bacino e dell'addome",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "10:00",
+		"timeTo": "13:00",
+		"dateFrom": "22/03/2020",
+		"dateTo": "22/03/2020",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "18/03/2020",
+		"imageDirs": ["assets/images/events/event[7].webp"],
+
+        "description": "Seminario Esperienziale a tema Metodo Feldenkrais.<br>In questo Seminario esploreremo, attraverso percorsi di movimento adattiad ogni persona, il Bacino e la sua possibilità di movimento che si articola nelle Anche e nella Colonna Lombare.<br>Vedremo come il Bacino sia un Centro Motore e Gravitazionale con la Funzione di Sostegno, di Equilibrio e di Potenza connesso a tutto il corpo.<br>Si lavorerà con i muscoli “addominali” imparando a differenziarli con ilresto dell’Addome che comprende le Pelvi, gli Psoas e il Diaframma. Ripristinare la funzione del Bacino significa prevenire i mal di schiena edattenuare le contratture permanenti grazie ad una migliore distribuzionedel tono muscolare, avere la postura bilanciata con la testa ben sostenuta e vigore e potenza in tutto il sistema mente-corpo.",
+		"cost": "45"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":6,
+			"available": "si"
+		},
+	    "title": "Work in Progress Psicofisico",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "a distanza",
+		"timeFrom": "15:00",
+		"timeTo": "18:00",
+		"dateFrom": "29/02/2020",
+		"dateTo": "29/02/2020",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "25/02/2020",
+		"imageDirs": ["assets/images/events/event[6].webp"],
+
+        "description": "Tema trattato: “L’equilibrio“: (il sostegno fluttuante quale elemento vitale delle relazioni).",
+		"cost": "50"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":5,
+			"available": "si"
+		},
+	    "title": "La fisica quantistica in due parti",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "a distanza",
+		"timeFrom": "15:30",
+		"timeTo": "16:30",
+		"dateFrom": "01/02/2020",
+		"dateTo": "15/02/2020",
+		"bookingOption": "Prenotazione opzionale",
+		"bookingDateLimit": "28/01/2020",
+		"imageDirs": ["assets/images/events/event[5].webp"],
+
+        "description": "La fisica quantistica è stata la protagonista indiscussa degli ultimi cento anni, ma ancora adesso, le sue implicazioni scientifiche e filosofiche non sono conosciute. Nella prima parte vedremo i contributi dei principali protagonisti, spiegando i meccanismi che rendono questa disciplina simile alle spiegazioni che molti mistici e frequentatori dei mondi spirituali danno nella nostra realtà. Nella seconda parte vedremo alcune implicazioni della fisica quantistica i cui sviluppi sono in corso e di cui si ignora la portata. Tra questi parleremo di Entaglement, crittografia quantistica e Universo a mille mondi.",
+		"cost": "00"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":4,
+			"available": "si"
+		},
+	    "title": "Conferenza di fisica quantistica - Il Big Bang e la Creazione dell'Universo",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "15:30",
+		"timeTo": "17:00",
+		"dateFrom": "30/11/2019",
+		"dateTo": "30/11/2019",
+		"bookingOption": "Prenotazione opzionale",
+		"bookingDateLimit": "28/11/2019",
+		"imageDirs": ["assets/images/events/event[4].webp"],
+
+        "description": "Il Professor Gianluigi Colaiacomo fornirà una panoramica della teoria del Big Bang a tutti coloro che desiderano comprendere come stia evolvendo la scienza e quanta rilevanza possa avere in un percorso yogico o di crescita spirituale. Non sono necessarie conoscenze scientifiche particolari, ma solo curiosità e disponibilità all’ascolto.<br>Questo seminario è di tipo divulgativo, diretto a tutti.<br>Il seminario inizierà con un riassunto di alcuni argomenti generali di fisica moderna trattati in un seminario precedente. Verrà, quindi, presentata la attuale teoria fisica del Big Bang, ossia la teoria dell’evoluzione dell’universo. Parleremo delle nostre conoscenze dell’universo attuale e di come sia possibile risalire alla sua conformazione nei primi istanti di vita. Parleremo delle sue diverse fasi di evoluzione e di come si sia trasformato nell’universo in espansione che vediamo attorno a noi. Verrà esaminato l’istante di creazione/emanazione dell’universo e la relazione con le sue prime fasi.<br>In una relazione tra il microcosmo e il macrocosmo si esamineranno le possibilità di un universo olografico.",
+		"cost": "0"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":3,
+			"available": "si"
+		},
+	    "title": "Reiki: corso di formazione per operatori di primo livello",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "09:30",
+		"timeTo": "10:30",
+		"dateFrom": "15/02/2014",
+		"dateTo": "16/02/2014",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "13/02/2014",
+		"imageDirs": ["assets/images/events/event[3].webp"],
+
+        "description": "“Il piano fisico”<br>Energia di auto guarigione naturale per sé stessi e per gli altri. Introduzione alla storia del Maestro Mikao Usui, padre fondatore del Reiki.Insegnamento dei suoi cinque principi e delle sue tecniche di base. Si ricevono quattro iniziazioni per l’attivazione del canale energetico principale che consente la trasmissione del Reiki a sé stessi attraverso l’Autotrattamento ed agli altri, l’equilibratura deiChakra, i Trattamenti brevi ed i Trattamenti specifici.",
+		"cost": "50"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":2,
+			"available": "si"
+		},
+	    "title": "Intensivo di Yoga sui Chakra - Manipura, il Potere Personale",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "10:00",
+		"timeTo": "13:30",
+		"dateFrom": "01/02/2014",
+		"dateTo": "01/02/2014",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "01/02/2014",
+		"imageDirs": ["assets/images/events/event[2].webp"],
+
+        "description": "Il suo simbolo un triangolo, il suo colore il rosso. Il suo elemento è il fuoco. Corrisponde all’apparato digestivo, legato alla nostra capacità di assimilare e metabolizzare gli stimoli esterni, da esso dipende la capacità di modificare la realtà ordinaria. È la sede del potere interiore, della volontà, dell’autocontrollo e dell’autoaffermazione. In questo Chakra si conciliano le opposte polarità del voler dominare e del non saper reagire.",
+		"cost": "50"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":1,
+			"available": "si"
+		},
+	    "title": "Intensivo di Yoga sui Chakra - Svadisthana, le Emozioni",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza",
+		"timeFrom": "10:00",
+		"timeTo": "13:30",
+		"dateFrom": "01/01/2000",
+		"dateTo": "01/01/2000",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "01/01/2000",
+		"imageDirs": ["assets/images/events/event[1].webp"],
+
+        "description": "",
+		"cost": "00"
+	},	
+	
+	{   
+	    "$aux":{
+		    "key":0,
+			"available": "no"
+		},
+	    "title": "",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza/a distanza",
+		"timeFrom": "00:00",
+		"timeTo": "00:00",
+		"dateFrom": "01/01/2000",
+		"dateTo": "01/01/2000",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "01/01/2000",
+		"imageDirs": ["assets/images/events/genericevent.webp"],
+
+        "description": "",
+		"cost": "00"
+	}
+]
