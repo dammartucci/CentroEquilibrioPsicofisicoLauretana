@@ -251,14 +251,14 @@ class GraphicElementsEnabler{
 			if(minWidth <50 && okWidth <50) return;
 			
 		    let b2 = new BoundsWatcher(
-				() => window.innerWidth <= minWidth,
+				() => document.body.clientWidth <= minWidth,
 				() => {
 					for(let i=0;i<layers.length;i++){
 						layers[i].classList.toggle(imgResc, false);
 						layers[i].style.width = okWidth + "px";
 					}
 				},
-				() => window.innerWidth >= okWidth,
+				() => document.body.clientWidth >= okWidth,
 				() => {
 					for(let i=0;i<layers.length;i++){
 						layers[i].classList.toggle(imgResc, true);
@@ -323,7 +323,7 @@ class GraphicElementsEnabler{
 		jollyButton.addEventListener("click",() =>{});  //initialize the click listener
 		
 		let b = new BoundsWatcher(
-			() => window.innerWidth <= criticalWidth,
+			() => document.body.clientWidth <= criticalWidth,
 			() => { 
 			        menuParent.removeChild(menuItems);
 					overflowContainer.appendChild(menuItems);
@@ -331,7 +331,7 @@ class GraphicElementsEnabler{
 					jollyButton.innerHTML = "☰";
 					jollyButton.onclick = () =>{overflowContainer.hidden = !overflowContainer.hidden;};  
 				  },
-			() => window.innerWidth >= okMinimumWidth,
+			() => document.body.clientWidth >= okMinimumWidth,
 			() => {
 					try{
 						overflowContainer.hidden = true;                  //the first time the second one it will throw an exception.	                  
@@ -415,4 +415,5 @@ class GraphicElementsEnabler{
 			window.location.href = "payment-info.html";
 		});
 	}
+
 }
