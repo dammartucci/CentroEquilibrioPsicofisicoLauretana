@@ -24,11 +24,31 @@
 	
 	{   
 	    "$aux":{
+		    "key":14,
+			"available": "si"
+		},
+	    "title": "Trasmettere la forza dalla spinta dei piedi",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode": "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "09/12/2025",
+		"dateTo": "09/01/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "31/12/2025",
+		"imageDirs": ["assets/images/events/event[14].webp"],
+
+        "description": "Quando spingi a terra con i piedi, la forza attraversa tutto lo scheletro, arrivando fino alla testa.<br>Usando tale forza appropriatamente, possiamo percepire l'inevitabile allineamento scheletrico<br><br>In queste lezioni reimpareremo a:<br><ul><li>migliorare la postura;</li><li>eliminare la tensione in eccesso dalle articolazioni.</li></ul><br>Così ci sentiremo più fluidi, e approfondiremo la qualità della percezione del nostro corpo.",
+		"cost": "70"
+	},
+	
+	{   
+	    "$aux":{
 		    "key":13,
 			"available": "si"
 		},
 	    "title": "Radicarsi, essere solidi attraverso il Metodo Feldenkrais",
-		"lessonCycle": "Ciclo di quattro lezioni",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
 		"lessonMode":  "a distanza",
 		"timeFrom": "18:30",
 		"timeTo": "19:30",
@@ -48,7 +68,7 @@
 			"available": "si"
 		},
 	    "title": "Muoversi con fluidità con l'uso del Sostegno",
-		"lessonCycle": "Ciclo di quattro lezioni",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
 		"lessonMode":  "a distanza",
 		"timeFrom": "18:30",
 		"timeTo": "19:30",
