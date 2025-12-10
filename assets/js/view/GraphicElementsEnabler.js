@@ -89,6 +89,7 @@ class GraphicElementsEnabler{
         this.processNodeDirectChildren(node,".extractable",                "listener_extractables", this.enableExtractablesFromLayout);		
 		this.processNodeDirectChildren(node,".browsable-container",        "listener_browsabcont",  this.enableBrowsableContainer);
 		this.processNodeDirectChildren(node,".parallax-container",         "listener_parallaxcont", this.enableParallaxContainer);
+		this.processNodeDirectChildren(node,".copyable",                   "listener_copyable",     this.enableCopyable.bind(this));
 	}
 	processNodeDirectChildren(node,selector,listenerPropertyName,method){
 	    let elems = node.querySelectorAll(selector);
@@ -271,6 +272,23 @@ class GraphicElementsEnabler{
 			b2.handleOverflowItems();					
 	}
 	
+	enableCopyable(elem){
+		elem.addEventListener("click",() => this.copyContents(elem));
+	}
+	
+	copyContents(elem){
+		let range = document.createRange();
+		range.selectNodeContents(elem);
+
+		let sel = window.getSelection();
+		sel.removeAllRanges();
+		sel.addRange(range);
+
+		document.execCommand("copy");
+		
+		sel.removeAllRanges(); // cleanup
+	}
+	
 	
 	//FUNCTIONS TO HANDLE MAIN MENU NAVIGATION
 	
@@ -415,5 +433,4 @@ class GraphicElementsEnabler{
 			window.location.href = "payment-info.html";
 		});
 	}
-
 }

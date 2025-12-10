@@ -79,7 +79,7 @@ class EventsViewer extends DataBaseViewer{
 			txt  = this.d.eventInfo;
 		}
 		else{
-			func = () => {this.showPaymentInfo()};
+			func = () => {this.showPaymentInfo(dbEntry.title)};
 			txt  = this.d.reserveSpot;
 		}
 		
@@ -87,20 +87,24 @@ class EventsViewer extends DataBaseViewer{
 		btn.innerHTML = txt;
 	}
 	
-	showInfo(info){			
-		let window2  = window.open("free-event-landing-page.html");
+	showInfo(info){	
+        this.sendAsyncData("free-event-landing-page.html","event-info",info);
+	}
+	
+	showPaymentInfo(info){
+		this.sendAsyncData("payment-info.html","event-name",info);		
+	}
+	
+	sendAsyncData(htmlpage, dataTransmissionID, info){
+		let window2  = window.open(htmlpage);
 		let interval = setInterval(()=>{
 			try{
-				let element = window2.document.getElementById("async_data_transmission");  //this works ONLY if using http://, not file:// !!
+				let element = window2.document.getElementById(dataTransmissionID);  //this works ONLY if using http://, not file:// !!
 				if(element)
 					element.innerHTML = info;
 				else
 					clearInterval(interval);
 			}catch(typeError){}
-		}, 1000);		
-	}
-	
-	showPaymentInfo(){
-		window.open("payment-info.html");		
+		}, 1000);			
 	}
 }
