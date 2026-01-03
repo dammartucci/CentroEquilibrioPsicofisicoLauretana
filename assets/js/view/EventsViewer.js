@@ -49,7 +49,7 @@ class EventsViewer extends DataBaseViewer{
 						 <div class="col-md-6">
 							 <h2>${dbEntry.title}</h2>
 							 <h3>${dbEntry.lessonCycle}: ${dbEntry.timeFrom} - ${dbEntry.timeTo}</h3>
-							 <i>${dateRange}, ${dbEntry.bookingOption}.</i>
+							 <i>${dbEntry.lessonMode}, ${dateRange}, ${dbEntry.bookingOption}.</i>
 						 </div>
 						 <div class="col-md-6 browsable-container">
 							<div class="browsables add-min-vert-spacing">${browsables.join("")}</div>
