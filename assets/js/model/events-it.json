@@ -24,6 +24,46 @@
 	
 	{   
 	    "$aux":{
+		    "key":0,
+			"available": "no"
+		},
+	    "title": "",
+		"lessonCycle": "Lezione",
+		"lessonMode":  "in presenza/a distanza",
+		"timeFrom": "00:00",
+		"timeTo": "00:00",
+		"dateFrom": "01/01/2000",
+		"dateTo": "01/01/2000",
+		"bookingOption": "Prenotazione obbligatoria/opzionale",
+		"bookingDateLimit": "01/01/2000",
+		"imageDirs": ["assets/images/events/genericevent.webp"],
+
+        "description": "",
+		"cost": "00"
+	},
+	
+	{   
+	    "$aux":{
+		    "key":15,
+			"available": "si"
+		},
+	    "title": "Il gioco prezioso tra costole e vertebre",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "13/01/2026",
+		"dateTo": "3/02/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "22/01/2026",
+		"imageDirs": ["assets/images/events/event[15].webp"],
+
+        "description": "Esaminiamo la gabbia toracica e le vertebre dorsali:<br><br><ol><li>La prima è composta da costole, protegge e contiene i polmoni, si espande e si contrae durante il respiro;</li><li>Le costole si connettono alle seconde, che devono restare sane per evitare disfunzioni come la schiena <i>inarcata indietro</i> (ipercifosi), la schiena <i>inarcata in avanti</i> (iperlordosi),  o <i>storta lateralmente</i> (scoliosi).</li></ol><i>Reimpariamo</i> a percepirle e ad usarle al meglio.  ",
+		"cost": "70"
+	},
+	
+	{   
+	    "$aux":{
 		    "key":14,
 			"available": "si"
 		},
@@ -298,26 +338,6 @@
 		"bookingOption": "Prenotazione obbligatoria/opzionale",
 		"bookingDateLimit": "01/01/2000",
 		"imageDirs": ["assets/images/events/event[1].webp"],
-
-        "description": "",
-		"cost": "00"
-	},	
-	
-	{   
-	    "$aux":{
-		    "key":0,
-			"available": "no"
-		},
-	    "title": "",
-		"lessonCycle": "Lezione",
-		"lessonMode":  "in presenza/a distanza",
-		"timeFrom": "00:00",
-		"timeTo": "00:00",
-		"dateFrom": "01/01/2000",
-		"dateTo": "01/01/2000",
-		"bookingOption": "Prenotazione obbligatoria/opzionale",
-		"bookingDateLimit": "01/01/2000",
-		"imageDirs": ["assets/images/events/genericevent.webp"],
 
         "description": "",
 		"cost": "00"
