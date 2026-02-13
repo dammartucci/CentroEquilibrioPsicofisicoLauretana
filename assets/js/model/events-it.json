@@ -28,7 +28,7 @@
 			"available": "no"
 		},
 	    "title": "",
-		"lessonCycle": "Lezione",
+		"lessonCycle": "Lezione/Ciclo di quattro lezioni CAM",
 		"lessonMode":  "in presenza/a distanza",
 		"timeFrom": "00:00",
 		"timeTo": "00:00",
@@ -41,6 +41,33 @@
         "description": "",
 		"cost": "00"
 	},
+	
+	{
+		"$aux":{
+			"available": ["si","no"]
+		}
+	},
+	
+	{   
+	    "$aux":{
+		    "key":16,
+			"available": "si"
+		},
+	    "title": "A testa alta! Sostenuta dal bacino",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "10/02/2026",
+		"dateTo": "04/03/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "20/02/2026",
+		"imageDirs": ["assets/images/events/event[16].webp"],
+
+        "description": "È importante migliorare il <i>portamento della testa</i>!<br>Scopriremo come le tensioni sul collo si ridurranno, e la diretta connessione che ha con il bacino.<br>A partire dalla testa riorganizzeremo l'intera <i>postura Funzionale</i>. ",
+		"cost": "70"
+	},
+	
 	
 	{   
 	    "$aux":{
