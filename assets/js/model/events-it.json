@@ -42,10 +42,24 @@
 		"cost": "00"
 	},
 	
-	{
-		"$aux":{
-			"available": ["si","no"]
-		}
+	{   
+	    "$aux":{
+		    "key":17,
+			"available": "si"
+		},
+	    "title": "Aumentare la flessibilità",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "10/03/2026",
+		"dateTo": "10/04/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/03/2026",
+		"imageDirs": ["assets/images/events/event[17].webp"],
+
+        "description": "È comune perdere la <b>flessibilità</b>, a causa di abitudini a posture dannose, respirazione superficiale e incompleta, stress emotivo.<br>Tutto ciò causa rigidità muscolare, riducendo l'ampiezza dei movimenti articolari.<br>Riacquistiamo libertà di movimento!",
+		"cost": "70"
 	},
 	
 	{   
