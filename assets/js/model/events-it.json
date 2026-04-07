@@ -44,6 +44,26 @@
 	
 	{   
 	    "$aux":{
+		    "key":18,
+			"available": "si"
+		},
+	    "title": "Allungarsi con leggiadria",
+		"lessonCycle": "Lezione/Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "14/04/2026",
+		"dateTo": "14/05/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/04/2026",
+		"imageDirs": ["assets/images/events/event[18].webp"],
+
+        "description": "Il movimento consapevolmente lento, fluido e piacevole consente alla muscolatura di lasciar andare ed alle articolazioni di espandersi.<br><br>Se impegniamo i muscoli più del necessario o li manteniamo contratti anche quando non occorre si entrerà in uno schema di tensione abituale che, con il tempo, si cronicizza, causando <b>dolori persistenti</b> ai muscoli e <b>restrizione di movimento</b> articolare, <b>stanchezza</b> e <b>stress emotivo</b>.<br><br>Ci occuperemo di allungamento funzionale e lo faremo mobilitando in modo insolito la Colonna Vertebrale e le costole per permettere loro di allungarsi assieme alle braccia ed alle gambe. <b>Girarsi e piegarsi</b> in avanti e indietro diverrà molto più immediato.",
+		"cost": "70"
+	},
+	
+	{   
+	    "$aux":{
 		    "key":17,
 			"available": "si"
 		},
@@ -78,7 +98,7 @@
 		"bookingDateLimit": "20/02/2026",
 		"imageDirs": ["assets/images/events/event[16].webp"],
 
-        "description": "È importante migliorare il <i>portamento della testa</i>!<br>Scopriremo come le tensioni sul collo si ridurranno, e la diretta connessione che ha con il bacino.<br>A partire dalla testa riorganizzeremo l'intera <i>postura Funzionale</i>. ",
+        "description": "È importante migliorare il <b>portamento della testa</b>!<br>Scopriremo come le tensioni sul collo si ridurranno, e la diretta connessione che ha con il bacino.<br>A partire dalla testa riorganizzeremo l'intera <b>postura Funzionale</b>. ",
 		"cost": "70"
 	},
 	
@@ -99,7 +119,7 @@
 		"bookingDateLimit": "22/01/2026",
 		"imageDirs": ["assets/images/events/event[15].webp"],
 
-        "description": "Esaminiamo la gabbia toracica e le vertebre dorsali:<br><br><ol><li>La prima è composta da costole, protegge e contiene i polmoni, si espande e si contrae durante il respiro;</li><li>Le costole si connettono alle seconde, che devono restare sane per evitare disfunzioni come la schiena <i>inarcata indietro</i> (ipercifosi), la schiena <i>inarcata in avanti</i> (iperlordosi),  o <i>storta lateralmente</i> (scoliosi).</li></ol><i>Reimpariamo</i> a percepirle e ad usarle al meglio.  ",
+        "description": "Esaminiamo la gabbia toracica e le vertebre dorsali:<br><br><ol><li>La prima è composta da costole, protegge e contiene i polmoni, si espande e si contrae durante il respiro;</li><li>Le costole si connettono alle seconde, che devono restare sane per evitare disfunzioni come la schiena <b>inarcata indietro</b> (ipercifosi), la schiena <b>inarcata in avanti</b> (iperlordosi),  o <b>storta lateralmente</b> (scoliosi).</li></ol><b>Reimpariamo</b> a percepirle e ad usarle al meglio.  ",
 		"cost": "70"
 	},
 	
