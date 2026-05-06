@@ -44,6 +44,26 @@
 	
 	{   
 	    "$aux":{
+		    "key":19,
+			"available": "si"
+		},
+	    "title": "Gli occhi e la postura",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "12/05/2026",
+		"dateTo": "12/06/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/05/2026",
+		"imageDirs": ["assets/images/events/event[19].webp"],
+
+        "description": "Lo scopo di questo ciclo di lezioni è creare le condizioni per un lavoro più sottile e profondo del movimento.<br> Ci occuperemo degli occhi ma anche della posizione della lingua all’interno della bocca connessi con tutto il corpo.<br>Nel cranio abbiamo gli organi di senso (vista, gusto, olfatto e udito) e regolazione dell’equilibrio.<br>Abbiamo due occhi spesso asimmetrici pertanto non allineati, con una dominanza di uno rispetto all’altro.<br>Ciò influisce sugli altri organi e sull’assetto posturale nel suo insieme.<br>Il nostro campo visivo diventerà più nitido e pertanto miglioreremo l’orientamento nello spazio ed il nostro portamento.",
+		"cost": "70"
+	},
+	
+	{   
+	    "$aux":{
 		    "key":18,
 			"available": "si"
 		},
