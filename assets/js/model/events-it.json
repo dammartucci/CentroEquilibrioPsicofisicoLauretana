@@ -42,6 +42,51 @@
 		"cost": "00"
 	},
 	
+	
+	
+	{   
+	    "$aux":{
+		    "key":21,
+			"available": "si"
+		},
+	    "title": "Postura funzionale",
+		"lessonCycle": "Lezione CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "19:00",
+		"timeTo": "20:00",
+		"dateFrom": "21/09/2026",
+		"dateTo": "01/10/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "01/10/2026",
+		"imageDirs": ["assets/images/events/event[21].webp"],
+
+        "description": "Lezione <b>introduttiva esperienziale gratuita</b> dove verrà presentato il <b>Conoscersi Attraverso il Movimento</b> secondo il Metodo Feldenkrais.",
+		"cost": "00",
+		"eventInfo": "Link chat di riunione: https://us02web.zoom.us/launch/jc/88652163511<br>ID: 886 5216 3511<br>Codice d’accesso: 958319"
+
+	},
+	
+	{   
+	    "$aux":{
+		    "key":20,
+			"available": "si"
+		},
+	    "title": "Dialogo tra mandibola, lingua e occhi",
+		"lessonCycle": "Ciclo di quattro lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "19:00",
+		"timeTo": "20:00",
+		"dateFrom": "09/06/2026",
+		"dateTo": "09/07/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/06/2026",
+		"imageDirs": ["assets/images/events/event[20].webp"],
+
+        "description": "Esploreremo la relazione profonda tra la mandibola, la posizione della lingua e gli occhi e come il tutto influenzi profondamente il cranio, la <b>simmetria della colonna vertebrale</b> e il <b>movimento del corpo</b>.",
+		"cost": "70"
+	},
+	
+	
 	{   
 	    "$aux":{
 		    "key":19,
