@@ -42,6 +42,26 @@
 		"cost": "00"
 	},
 	
+	{   
+	    "$aux":{
+		    "key":22,
+			"available": "si"
+		},
+	    "title": "L’equilibrio dei due lati",
+		"lessonCycle": "Ciclo di sei lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "06/10/2026",
+		"dateTo": "06/11/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "20/10/2026",
+		"imageDirs": ["assets/images/events/event[22].webp"],
+
+        "description": "Impareremo a correggere dolcemente le asimmetrie della colonna vertebrale.",
+		"cost": "70"
+	},
+	
 	
 	
 	{   
@@ -55,9 +75,9 @@
 		"timeFrom": "19:00",
 		"timeTo": "20:00",
 		"dateFrom": "21/09/2026",
-		"dateTo": "01/10/2026",
+		"dateTo": "21/09/2026",
 		"bookingOption": "Prenotazione obbligatoria",
-		"bookingDateLimit": "01/10/2026",
+		"bookingDateLimit": "21/09/2026",
 		"imageDirs": ["assets/images/events/event[21].webp"],
 
         "description": "Lezione <b>introduttiva esperienziale gratuita</b> dove verrà presentato il <b>Conoscersi Attraverso il Movimento</b> secondo il Metodo Feldenkrais.",
