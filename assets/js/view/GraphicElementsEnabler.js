@@ -1,9 +1,11 @@
-//here the scripts to manipulate the DOM graphic elements. Shared so that it"s loaded one time, for every page
+//here the scripts to manipulate the DOM graphic elements. Shared by every webpage, it's loaded one time.
 //someone may wonder why to do this, while i could actually create a script type="module". I tried, and I was 
-//blocked by the browser's CORS policy, that i was not able to disable for offline testing. I could run a local
-//server, but i refused to do that. After undoing all the changes, like the export classes of the model, finally 
-//i came up with this class. I know, i could just disable web security, but maybe this outcome has turned better.
-//i added the dynamic generation of main menu and footer note for the same reason i created the other functions:
+//blocked by the browser's CORS policy, that i was not able to disable for offline testing. 
+// - I could run a local server, but i refused to do that. 
+// - I could run a browser instance without CORS, but at that time I didn't think was possible. 
+//After undoing all the changes, like the export classes of the model, finally 
+//I came up with this class. Maybe this outcome has turned better than the original idea.
+//I added the dynamic generation of main menu and footer note for the same reason i created the other functions:
 //avoiding to manually update every item in case i change something. This js injection is more than justified to me.
 //the beginning and the end of each page is constant. No reason to repeat html code.
 
@@ -14,12 +16,40 @@ const FOOTER_NOTE_C = "- tutti i diritti riservati";
 const FOOTER_NOTE_T = "Seguici sui social e diffondi la voce!";
 const FOUNDING_YEAR = "2010";
 
-const SOCIAL_CONTACTS = [
+/*Principle is simple: patches to abide to local laws should be written in the native language.  
+  It makes no sense to force awkward English translations.*/
+ 
+//aggiungere tali informazioni è fondamentale per evitare sanzioni fino a 2k EUR
+
+const ITALIAN_CODICE_CIVILE_ART_2250 = {
+    
+	"businessType" : "Ditta individuale di Trevisi Lauretana, ",
+	"codiceFiscale" : "Codice fiscale: TRVLTN63D58A512R",
+	/*"codiceREA"     : ", Codice REA: AA-0000000",*/
+	
+	"sedeLegale" : {
+		"$name"        : ", Sede legale:",
+		"via"          : "via Rivisondoli ",
+		"numerocivico" : "47 B",
+		"cap"          : "00156",
+		"comune"       : "Roma",
+		"citta"        : "RM"
+	},
+	
+	/*"capitaleSociale": {
+		"$name"          : ", Capitale sociale:",
+		"importo"        : "1000 €",
+		"statoVersamento": "interamente versato",              //i.v. oppure p.v.
+        "tipologiaSoci"  : ""		                           //unipersonale oppure stringa vuota
+	}	*/
+};
+
+const SOCIAL_NETWORKS_CONTACTS = [
     ["https://facebook.com/centroequilibriopsicofisico","facebook.webp"],
 	["https://instagram.com/centroequilibriopsicofisico","instagram.webp"],
 	["https://whatsapp.com/","whatsapp.webp"]
 ];
-const LOC_VALUES = [
+const LOCATIONS = [
     ["https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.7236074043435!2d12.948246675368924!3d42.00620695738483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f9afbdd4fa15d%3A0xc5aff1f279225028!2sLocalit%C3%A0%20Macchiole%2C%201%2C%2000020%20Macchiole%20RM!5e0!3m2!1sen!2sit!4v1757720275993!5m2!1sen!2sit",
      "Sede I: Saracinesco RM<br>(attività individuali e di gruppo)"],
     ["https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.43056975565!2d12.509047275361945!3d41.883596365071035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61eb6ef598dd%3A0xfa46dd4a6db1f03d!2sVia%20Appia%20Nuova%2C%2096%2C%2000138%20Roma%20RM!5e0!3m2!1sen!2sit!4v1758812583185!5m2!1sen!2sit",
@@ -44,12 +74,12 @@ class GraphicElementsEnabler{
 			this.createMainMenu(BUSINESS_NAME,MENU_BUTTONS);                                      
 			this.enableLinkButtons(MENU_BUTTONS);
 			this.enableMainMenuJollyButton();     
-			this.createFooterNote(SOCIAL_CONTACTS); 	
+			this.createFooterNote(SOCIAL_NETWORKS_CONTACTS); 	
 			
 			
 		    //available only in some documents: elements with specific ids are searched and manipulated: STATIC        
 			this.createEnableForm("inserts-form-here");                 
-			this.createEnableGoogleMapsFrame("inserts-gmaps-frame-here",LOC_VALUES);
+			this.createEnableGoogleMapsFrame("inserts-gmaps-frame-here",LOCATIONS);
 			this.enableReserveSpotButton("goto-payment-info"); 
 			
 			
@@ -373,7 +403,8 @@ class GraphicElementsEnabler{
 		for(let i=0;i<socials.length;i++)
 			out.push(`\n<a href="${socials[i][0]} target="_blank"><img src="assets/images/social/${socials[i][1]}"></img></a> `);	    
         out.push(`</div><p class="add-high-vert-spacing">COPYRIGHT © ${FOUNDING_YEAR}-${new Date().getFullYear()} - ${BUSINESS_NAME} ${FOOTER_NOTE_C}</p>`);	
-
+        out.push(`<i>${new DataStructureUtilities().translateStructureIntoString(ITALIAN_CODICE_CIVILE_ART_2250," ")}</i>`);
+		
         let footerNote = document.createElement("div");
 		footerNote.id = "footer-note";
 	    footerNote.className = "common-container";
