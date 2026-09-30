@@ -1,3 +1,12 @@
+/*  
+	Custom design & development 
+	COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
+	AUTHOR: Damiano Martucci <damiano.martucci.business@gmail.com>
+				
+	This code is proprietary and confidential. Unauthorized copying 
+	of this file, via any medium, is strictly prohibited. 
+*/
+
 //here the scripts to manipulate the DOM graphic elements. Shared by every webpage, it's loaded one time.
 //someone may wonder why to do this, while i could actually create a script type="module". I tried, and I was 
 //blocked by the browser's CORS policy, that i was not able to disable for offline testing. 
@@ -23,25 +32,38 @@ const FOUNDING_YEAR = "2010";
 
 const ITALIAN_CODICE_CIVILE_ART_2250 = {
     
-	"businessType" : "Ditta individuale di Trevisi Lauretana, ",
-	"codiceFiscale" : "Codice fiscale: TRVLTN63D58A512R",
-	/*"codiceREA"     : ", Codice REA: AA-0000000",*/
-	
-	"sedeLegale" : {
-		"$name"        : ", Sede legale:",
-		"via"          : "via Rivisondoli ",
-		"numerocivico" : "47 B",
-		"cap"          : "00156",
-		"comune"       : "Roma",
-		"citta"        : "RM"
+	"dittaIndividuale.identificativi": {
+	    "$name"        : "Ditta individuale di", 
+	    "cognomeNome" : "Trevisi Lauretana",		
 	},
 	
-	/*"capitaleSociale": {
+	/*"societaPersone.identificativi": {
+		"$name"         : "Ragione sociale:",
+		"ragioneSociale": ""
+	},*/
+	
+	/*"societaCapitali.capitaleSociale": {
 		"$name"          : ", Capitale sociale:",
 		"importo"        : "1000 €",
 		"statoVersamento": "interamente versato",              //i.v. oppure p.v.
         "tipologiaSoci"  : ""		                           //unipersonale oppure stringa vuota
-	}	*/
+	},*/	
+	
+	"$text0"        : ", Partita IVA:",
+	"partitaIVA"    : "18229811007",
+	"$text1"        : ", Codice fiscale:",
+	"codiceFiscale" : "TRVLTN63D58A512R",
+	/*"$text2"        : ", Codice REA: "
+	"codiceREA"     : "AA-0000000",*/
+	
+	"sedeLegale" : {
+		"$name"        : ", Sede legale:",
+		"via"          : "via Rivisondoli",
+		"numerocivico" : "47 B",
+		"cap"          : "00156",
+		"comune"       : "Roma",
+		"provincia"    : "RM"
+	}
 };
 
 const SOCIAL_NETWORKS_CONTACTS = [
