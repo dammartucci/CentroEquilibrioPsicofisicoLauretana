@@ -1,3 +1,12 @@
+/*  
+	Custom design & development 
+	COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
+	AUTHOR: Damiano Martucci <damiano.martucci.business@gmail.com>
+				
+	This code is proprietary and confidential. Unauthorized copying 
+	of this file, via any medium, is strictly prohibited. 
+*/
+
 //SO FAR, DATABASES ARE ONLY BE MANAGED BY A SERVER. so static websites shouldn't be able
 //to do so. Is this true? In this class, I implemented a hierarchical database with javascript!
 //in this way, the server is decentralized to the destination machine. 
