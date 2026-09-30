@@ -1,4 +1,11 @@
-
+/*  
+	Custom design & development 
+	COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
+	AUTHOR: Damiano Martucci <damiano.martucci.business@gmail.com>
+				
+	This code is proprietary and confidential. Unauthorized copying 
+	of this file, via any medium, is strictly prohibited. 
+*/
 class DataStructureUtilities{
 
     async loadData(filename){
