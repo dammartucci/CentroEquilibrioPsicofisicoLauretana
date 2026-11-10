@@ -44,6 +44,26 @@
 	
 	{   
 	    "$aux":{
+		    "key":23,
+			"available": "si"
+		},
+	    "title": "L'equilibrio ritrovato",
+		"lessonCycle": "Ciclo di sei lezioni CAM",
+		"lessonMode":  "a distanza",
+		"timeFrom": "18:45",
+		"timeTo": "19:45",
+		"dateFrom": "17/11/2026",
+		"dateTo": "17/12/2026",
+		"bookingOption": "Prenotazione obbligatoria",
+		"bookingDateLimit": "30/11/2026",
+		"imageDirs": ["assets/images/events/event[23].webp"],
+
+        "description": "Aumentare la <b>sicurezza</b> nei movimenti per nutrire e rendere <b>flessibile</b> ed <b>adattabile</b> la nostra colonna vertebrale.<br><br>Recupereremo maggior equilibrio nelle nostre azioni quotidiane e sportive, nello stare in piedi e nel camminare, su cui si avrà più <b>fiducia</b> e meno fatica.",
+		"cost": "110"
+	},
+	
+	{   
+	    "$aux":{
 		    "key":22,
 			"available": "si"
 		},
