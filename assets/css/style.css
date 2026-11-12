@@ -11,7 +11,7 @@
 	--gradient:     linear-gradient(90deg,#6987C0,#2F8F2E);    /*linear-gradient(90deg,#7474bf,#348ac7);*/
 	--gradient-inv: linear-gradient(90deg,#2F8F2E,#6987C0);
 	
-	--low-opacity: rgba(255,255,255,.3);
+	--low-opacity: rgba(255,255,255,.2);
 	--med-opacity: rgba(255,255,255,.6);
 	
 	--scale: 1.57vw;                          /*guarantees actual size of 16px in a screen width of 1024px*/
@@ -241,6 +241,12 @@ body{
 	text-align: right;
 	justify-content: right;
     gap: var(--4px);	
+}
+
+.text-row {
+  display: flex;
+  align-items: baseline; /* Allinea perfettamente la base del testo di entrambi i titoli */
+  gap: var(--20px);             /* Aggiunge spazio pulito tra h1 e h2 */
 }
 
 
