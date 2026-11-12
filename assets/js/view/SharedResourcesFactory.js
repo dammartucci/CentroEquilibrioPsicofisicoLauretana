@@ -23,8 +23,8 @@ class SharedResourcesFactory{
 	        return "Non è più in corso, tuttavia puoi ascoltare le registrazioni audio!";
 	}
     
-	/*public*/ static /*String*/ getPaymentInfo(moneySumNum,eventNameStr){    
-		if(moneySumNum > 0)
+	/*public*/ static /*String*/ getPaymentInfo(moneySumNum, eventNameStr, linkStr){    
+		if(moneySumNum > 0) 
 			return `<div class="add-med-vert-spacing"></div>
 			Accettiamo per ora solo pagamenti con <b>bonifico</b>. Ecco le informazioni da sapere per compilarne uno:<br>
 			<div class="add-med-vert-spacing"></div>
@@ -63,7 +63,7 @@ class SharedResourcesFactory{
 			    </div>
 			</div>`;
 			
-			else return `<h3>Con questa lezione gratuita avrai l'occasione di conoscere un nuovo percorso per la tua vita.
+		else return `<h3>Con questa lezione gratuita avrai l'occasione di conoscere un nuovo percorso per la tua vita.
 				 Lauretana sarà lieta di accoglierti nella sua Classe, se vorrai proseguire. 
 			</h3> 
 		
@@ -72,58 +72,58 @@ class SharedResourcesFactory{
 			Le informazioni per la riunione sono le seguenti:
 		
 			<div id="event-info" class="common-overlaid-container add-med-spacing spawn-element">
-				Le info devono essere generate su richiesta. Contatta Lauretana.
+				${linkStr ? linkStr : "Le info devono essere generate su richiesta. Contatta Lauretana."}
 			</div>
 			`;
-		}
+	}
 		
-		/*public*/ static /*String*/ getPunctualityRules(){
-			return `Chiediamo inoltre una cosa molto importante: la puntualità.<br> 
-			È infatti essenziale per garantire efficienza, e un'esperienza di apprendimento eccellente per tutti.<br>
-			
-			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
-				<div class="expandable-container-title">Qual è il margine massimo accettabile di ritardo?</div>
-				<div class="expandable-container-content"> 
-					<text>È sempre di quindici minuti. L'insegnante, in quel tempo, è occupato 
-					a fare l'introduzione di ciò che sarà trattato nella lezione. </text>
-				</div>
+	/*public*/ static /*String*/ getPunctualityRules(){
+		return `Chiediamo inoltre una cosa molto importante: la puntualità.<br> 
+		È infatti essenziale per garantire efficienza, e un'esperienza di apprendimento eccellente per tutti.<br>
+		
+		<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+			<div class="expandable-container-title">Qual è il margine massimo accettabile di ritardo?</div>
+			<div class="expandable-container-content"> 
+				<text>È sempre di quindici minuti. L'insegnante, in quel tempo, è occupato 
+				a fare l'introduzione di ciò che sarà trattato nella lezione. </text>
 			</div>
-			
-			<!--div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
-				<div class="expandable-container-title">Gestione Partita IVA</div>
-				<div class="expandable-container-content"> 
-					<text>text</text>
-				</div>
-			</div-->
-            
-			<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
-				<div class="expandable-container-title">Che cosa accade se supero il margine di ritardo?</div>
-				<div class="expandable-container-content"> 
-				    <div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-						<div class="expandable-container-title">In presenza</div>
-						<div class="expandable-container-content"><text>
-				            Non è ancora stato deciso. Si vedrà sul momento.
-						</text></div>
-					</div>
-					
-					<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-						<div class="expandable-container-title">A distanza</div>
-						<div class="expandable-container-content"><text>
-				            Non sarà più possibile unirsi alla riunione. Sarà tuttavia, al termine di essa, 
-							inviato un link per vedere una ripetizione della stessa. 
-						</text></div>
-					</div>   
-				</div>
+		</div>
+		
+		<!--div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+			<div class="expandable-container-title">Gestione Partita IVA</div>
+			<div class="expandable-container-content"> 
+				<text>text</text>
 			</div>
+		</div-->
+		
+		<div class="common-overlaid-container expandable-container add-med-spacing togglable spawn-element">
+			<div class="expandable-container-title">Che cosa accade se supero il margine di ritardo?</div>
+			<div class="expandable-container-content"> 
+				<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+					<div class="expandable-container-title">In presenza</div>
+					<div class="expandable-container-content"><text>
+						Non è ancora stato deciso. Si vedrà sul momento.
+					</text></div>
+				</div>
+				
+				<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+					<div class="expandable-container-title">A distanza</div>
+					<div class="expandable-container-content"><text>
+						Non sarà più possibile unirsi alla riunione. Sarà tuttavia, al termine di essa, 
+						inviato un link per vedere una ripetizione della stessa. 
+					</text></div>
+				</div>   
+			</div>
+		</div>
 
-			<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
-				<div class="expandable-container-title">Ma tutto ciò non implica un rigore eccessivo?</div>
-				<div class="expandable-container-content"><text>
-				    Ecco che cosa dice l'insegnante, Lauretana, a riguardo:<br>
-					<i>"È vero, sembra così, ma credimi, per esperienza, è davvero insopportabile, sia per me che per gli altri, 
-					essere interrotti nella concentrazione da qualcuno che si presenta in ritardo, che, inoltre, avrà difficoltà 
-					a capire che cosa si sta facendo, peggiorando così sia la sua che l'altrui qualità della lezione".</i>
-				</text></div>
-			</div>`;
-		}
+		<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
+			<div class="expandable-container-title">Ma tutto ciò non implica un rigore eccessivo?</div>
+			<div class="expandable-container-content"><text>
+				Ecco che cosa dice l'insegnante, Lauretana, a riguardo:<br>
+				<i>"È vero, sembra così, ma credimi, per esperienza, è davvero insopportabile, sia per me che per gli altri, 
+				essere interrotti nella concentrazione da qualcuno che si presenta in ritardo, che, inoltre, avrà difficoltà 
+				a capire che cosa si sta facendo, peggiorando così sia la sua che l'altrui qualità della lezione".</i>
+			</text></div>
+		</div>`;
+	}
 }
