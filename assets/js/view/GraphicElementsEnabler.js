@@ -1,8 +1,8 @@
 /*  
-	Custom design & development 
-	COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
+    Custom design & development 
+    COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
 	AUTHOR: Damiano Martucci <damiano.martucci.business@gmail.com>
-				
+    
 	This code is proprietary and confidential. Unauthorized copying 
 	of this file, via any medium, is strictly prohibited. 
 */
@@ -18,6 +18,8 @@
 //avoiding to manually update every item in case i change something. This js injection is more than justified to me.
 //the beginning and the end of each page is constant. No reason to repeat html code.
 
+//all methods are /*public void*/
+
 //THE AREA CONTAINING CONSTANT VALUES: EDIT AS YOU NEED-----------------------------
 
 const BUSINESS_NAME = "Centro Equilibrio Psicofisico di Lauretana";
@@ -25,11 +27,10 @@ const FOOTER_NOTE_C = "- tutti i diritti riservati";
 const FOOTER_NOTE_T = "Seguici sui social e diffondi la voce!";
 const FOUNDING_YEAR = "2010";
 
-/*Principle is simple: patches to abide to local laws should be written in the native language.  
+/*Code patches to abide to local laws should be written IN THE NATIVE LANGUAGE.  
   It makes no sense to force awkward English translations.*/
  
 //aggiungere tali informazioni è fondamentale per evitare sanzioni fino a 2k EUR
-
 const ITALIAN_CODICE_CIVILE_ART_2250 = {
     
 	"dittaIndividuale.identificativi": {
@@ -40,20 +41,21 @@ const ITALIAN_CODICE_CIVILE_ART_2250 = {
 	/*"societaPersone.identificativi": {
 		"$name"         : "Ragione sociale:",
 		"ragioneSociale": ""
+		"inLiquidazione": "in liquidazione"               //in liquidazione oppure oscurato
 	},*/
 	
 	/*"societaCapitali.capitaleSociale": {
 		"$name"          : ", Capitale sociale:",
 		"importo"        : "1000 €",
-		"statoVersamento": "interamente versato",              //i.v. oppure p.v.
-        "tipologiaSoci"  : ""		                           //unipersonale oppure stringa vuota
+		"statoVersamento": "interamente versato",         //i.v. oppure p.v.
+        "tipologiaSoci"  : ""		                      //unipersonale oppure stringa vuota
 	},*/	
 	
 	"$text0"        : ", Partita IVA:",
 	"partitaIVA"    : "18229811007",
 	"$text1"        : ", Codice fiscale:",
 	"codiceFiscale" : "TRVLTN63D58A512R",
-	/*"$text2"        : ", Codice REA: "
+	/*"$text2"        : ", Codice REA: "                  //non obbligatorio per tutti. verificare categoria lavorativa
 	"codiceREA"     : "AA-0000000",*/
 	
 	"sedeLegale" : {
@@ -92,33 +94,31 @@ class GraphicElementsEnabler{
 	
 	constructor(){
 		document.addEventListener("DOMContentLoaded",() => {
-			//available on all documents: STATIC
+			//AVAILABLE ON ALL DOCUMENTS
 			this.createMainMenu(BUSINESS_NAME,MENU_BUTTONS);                                      
 			this.enableLinkButtons(MENU_BUTTONS);
 			this.enableMainMenuJollyButton();     
 			this.createFooterNote(SOCIAL_NETWORKS_CONTACTS); 	
 			
-			
 		    //available only in some documents: elements with specific ids are searched and manipulated: STATIC        
-			this.createEnableForm("inserts-form-here");                 
-			this.createEnableGoogleMapsFrame("inserts-gmaps-frame-here",LOCATIONS);
-			this.enableReserveSpotButton("goto-payment-info"); 
+			this.createEnableFormForID("inserts-form-here");                 
+			this.createEnableGoogleMapsFrameForID("inserts-gmaps-frame-here",LOCATIONS);
 			
-			
-			//available in mostly all documents: new items may be added DYNAMICALLY
-			//previously created elements may use these classes, so now it's time to enable them 		
+			//SOLVES THE PROBLEM OF DYNAMIC GENERATION OF RUNTIME NODES THAT NEED TO BE PROCESSED 
+			//BY SOME METHODS TO PROPERLY WORK			
 			this.mutobserver = new MutationObserver((mutations) => {
                 mutations.forEach(mutation => {
 					//console.log(mutation);
 					mutation.addedNodes.forEach(node => {
-						if (node.nodeType === Node.ELEMENT_NODE) {        
+						if (node.nodeType === Node.ELEMENT_NODE)        
 							this.enableInteractiveElements(node);        //apply only where needed
-						}
 					});
 				});
 			});
 			this.mutobserver.observe(document.body, { childList: true, subtree: true });
 			
+			
+			//ALLOWS THE DYNAMIC APPEARANCE OF NODES
 			this.intobserver = new IntersectionObserver((entries,observer) => {
 				for(let i=0;i<entries.length;i++)
 					if(entries[i].isIntersecting){
@@ -132,17 +132,17 @@ class GraphicElementsEnabler{
 	}
 	
 	enableInteractiveElements(node){
-		if(node != document)        //FUNDAMENTAL!! THE QUERYSELECTORALL CAN'T SELECT THE NODE IT'S INVOKED ON
-		    node = node.parentElement;
+		if(node != document) node = node.parentElement;       //CRUCIAL!! THE QUERYSELECTORALL CAN'T SELECT THE NODE IT'S INVOKED ON
 		
 		this.processNodeDirectChildren(node,".spawn-element","listener_spawnelem",this.enableElementsSpawning.bind(this));
-		
+		this.processNodeDirectChildren(node,".requires-form","form_added"        ,this.createEnableForm.bind(this));
 		this.processNodeDirectChildren(node,".expandable-container",       "listener_expcont",      this.enableExpandableContainerExpandCollapseTextPreview);
         this.processNodeDirectChildren(node,".extractable",                "listener_extractables", this.enableExtractablesFromLayout);		
 		this.processNodeDirectChildren(node,".browsable-container",        "listener_browsabcont",  this.enableBrowsableContainer);
 		this.processNodeDirectChildren(node,".parallax-container",         "listener_parallaxcont", this.enableParallaxContainer);
 		this.processNodeDirectChildren(node,".copyable",                   "listener_copyable",     this.enableCopyable.bind(this));
 	}
+	
 	processNodeDirectChildren(node,selector,listenerPropertyName,method){
 	    let elems = node.querySelectorAll(selector);
 		for(let i=0;i<elems.length;i++)
@@ -435,7 +435,7 @@ class GraphicElementsEnabler{
 	}
 
 	//HANDLE LOCATION SWITCHING ON GOOGLE MAPS IFRAME
-	createEnableGoogleMapsFrame(id,values){
+	createEnableGoogleMapsFrameForID(id,values){
 		let item = document.getElementById(id);
 		if(!item) return;
 		
@@ -455,11 +455,14 @@ class GraphicElementsEnabler{
 	}
 	
 	//SINCE THIS ITEM IS REUSED ACROSS PAGES, IT HAS BEEN EDITED AS PROCEDURALLY GENERATED
-	createEnableForm(id){
-		let item = document.getElementById(id);
-		if(!item) return;
+	createEnableFormForID(id){
+		let node = document.getElementById(id);
+		if(!node) return;
 		
-		item.innerHTML = `
+		this.createEnableForm(node);
+	}
+	createEnableForm(node){
+		node.innerHTML = `
 		    <form id="contact-form">
 			    <input class="common-overlaid-container add-min-vert-spacing form-control" name="name" type="text" placeholder="Nome" required>
 				<input class="common-overlaid-container add-min-vert-spacing form-control" name="surname" type="text" placeholder="Cognome" required>
@@ -470,20 +473,11 @@ class GraphicElementsEnabler{
 			</form>
 		`;
 	
-	    item.children[0].addEventListener("submit", async(event) =>{
+	    node.children[0].addEventListener("submit", async(event) =>{
 			event.preventDefault();  //the default action is to empty all the inputs-->
-			let submitter = new FormSubmitter(item.children[0]);
+			let submitter = new FormSubmitter(node.children[0]);
 			let outputstr = await submitter.submit();
 			alert(outputstr);
-		});
-	}
-	
-	enableReserveSpotButton(id){
-		let butt = document.getElementById(id);
-		if(!butt) return;
-		
-		butt.addEventListener("click",()=>{
-			window.location.href = "payment-info.html";
 		});
 	}
 }

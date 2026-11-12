@@ -1,119 +1,155 @@
 /*  
-	Custom design & development 
-	COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
+    Custom design & development 
+    COPYRIGHT ® 2025 Damiano Martucci, AFSI SRLs. All rights reserved.
 	AUTHOR: Damiano Martucci <damiano.martucci.business@gmail.com>
-				
+    
 	This code is proprietary and confidential. Unauthorized copying 
 	of this file, via any medium, is strictly prohibited. 
 */
 
 class DataBaseViewer{
+    /*public void*/ initialize(valuesObjArr){}
 
-    initialize(values){}
-
-    translateDbEntryIntoHTML(dbEntry){}
+    /*public String*/ translateDbEntryIntoHTML(dbEntryObj){}
 	
-	postProcessNode(node){}
+	/*public void*/ postProcessNode(node){}
 	
+	//ADD HERE all methods that are needed by children classes
+	/*public static Date*/ castToDate(ddmmyyStr){                          //takes as input a date in format dd/mm/yy
+        let ddmmyyNumArr = ddmmyyStr.split("/");        
+		return new Date(ddmmyyNumArr[2],ddmmyyNumArr[1]-1,ddmmyyNumArr[0],23,59);	//yymmdd
+	}
 }
 
 
 class EventsViewer extends DataBaseViewer{
 
-    initialize(values){
-		this.ERROR_MESSAGE = "ERROR! Something went wrong during the generation of the node";
-		this.d = values[0];
-		this.today = new Date();
-	}
-	
-	castToDate(ddmmyy){
-        ddmmyy = ddmmyy.split("/"); 
-		return new Date(ddmmyy[2],ddmmyy[1]-1,ddmmyy[0],23,59);	//yymmdd
+    /*public void*/ initialize(valuesObjArr){
+		this.ERROR_MESSAGEStr = "ERROR! Something went wrong during the generation of the Node instance";
+		this.localeStringsObj = valuesObjArr[0];
+		this.todayDate = new Date();
 	}
 
-    translateDbEntryIntoHTML(dbEntry){
-	    let html = this.ERROR_MESSAGE;
+    /*public String*/ translateDbEntryIntoHTML(dbEntryObj){
+	    let htmlStr = this.ERROR_MESSAGEStr;
 		try{
-			let browsables = [];
-			let imageDirs  = dbEntry.imageDirs;
-			for(let i=0;i<imageDirs.length;i++)
-				browsables.push(`<img class="fluid-element" src="${imageDirs[i]}"></img>`);
+			let browsablesNodeStrArr = SharedResourcesFactory.getBrowsablesNodeInnerHTML(dbEntryObj.imageDirs);
 			
-			let button = "";
-			if(this.today <= this.castToDate(dbEntry.bookingDateLimit)){
-			    button = `<button class="common-container common-button"></button>`;
-			    this.lastDbEntry = dbEntry;
+			let dateRangeStr = `${this.localeStringsObj.from} ${dbEntryObj.dateFrom} ${this.localeStringsObj.to} ${dbEntryObj.dateTo}`;
+			if(dbEntryObj.dateFrom == dbEntryObj.dateTo) dateRangeStr = `${dbEntryObj.dateFrom}`;
+			
+			let buttonStr = "";
+			if(this.todayDate <= super.castToDate(dbEntryObj.bookingDateLimit)){  //check if the event is still available
+			    buttonStr = `<button class="common-container common-button"></button>`;
+			    this.lastDbEntry = dbEntryObj;
 			}
 			
-			let dateRange;
-			
-			if(dbEntry.dateFrom == dbEntry.dateTo)
-				dateRange = `${dbEntry.dateFrom}`;
-			else	
-			    dateRange = `${this.d.from} ${dbEntry.dateFrom} ${this.d.to} ${dbEntry.dateTo}`;
-			
-			html = `
+			htmlStr = `
 				<div class="common-overlaid-container expandable-container add-med-spacing spawn-element">
 					<div class="expandable-container-title row align-items-center">
 						 <div class="col-md-6">
-							 <h2>${dbEntry.title}</h2>
-							 <h3>${dbEntry.lessonCycle}: ${dbEntry.timeFrom} - ${dbEntry.timeTo}</h3>
-							 <i>${dbEntry.lessonMode}, ${dateRange}, ${dbEntry.bookingOption}.</i>
+							 <h2>${dbEntryObj.title}</h2>
+							 <h3>${dbEntryObj.lessonCycle}: ${dbEntryObj.timeFrom} - ${dbEntryObj.timeTo}</h3>
+							 <i>${dbEntryObj.lessonMode}, ${dateRangeStr}, ${dbEntryObj.bookingOption}.</i>
 						 </div>
 						 <div class="col-md-6 browsable-container">
-							<div class="browsables add-min-vert-spacing">${browsables.join("")}</div>
+							<div class="browsables add-min-vert-spacing">${browsablesNodeStrArr.join("")}</div>
 						 </div>
 					</div>
 					<div class="expandable-container-content"><text>
-						${dbEntry.description}
-						 <p class="add-min-spacing"><i>${this.d.bookingLimit} ${dbEntry.bookingDateLimit}, ${this.d.costType}: ${dbEntry.cost}${this.d.currency}</i></p> 
+						${dbEntryObj.description}
+						 <p class="add-min-spacing"><i>${this.localeStringsObj.bookingLimit} ${dbEntryObj.bookingDateLimit}, ${this.localeStringsObj.costType}: ${dbEntryObj.cost}${this.localeStringsObj.currency}</i></p> 
 					</text></div>
-					${button}
+					${buttonStr}
 					</div>
 			`;
 		}catch(typeError){console.log(typeError)}
 		
-	    return html;
+	    return htmlStr;
 	}
 	
-	postProcessNode(node){
-		let btn = node.querySelector("button");
-		if(!btn) return;
+	/*public void*/ postProcessNode(node){
+		let btnNode = node.querySelector("button");
+		if(!btnNode) return;
 		
-		let dbEntry = this.lastDbEntry;
-		
-		let txt,func;
-		if(this.lastDbEntry.cost == 0){
-			func = () => {this.showInfo(dbEntry.eventInfo)};
-			txt  = this.d.eventInfo;
+		let dbEntryObj = this.lastDbEntry;
+		let functio;
+		let txtStr;	
+		if(dbEntryObj.cost == 0){
+			functio = () => {this.showInfo(dbEntryObj.eventInfo)};
+			txtStr  = this.localeStringsObj.eventInfo;
 		}
 		else{
-			func = () => {this.showPaymentInfo(dbEntry.title)};
-			txt  = this.d.reserveSpot;
+			functio = () => {this.showPaymentInfo(dbEntryObj.title)};
+			txtStr  = this.localeStringsObj.reserveSpot;
 		}
 		
-		btn.addEventListener("click",func);
-		btn.innerHTML = txt;
+		btnNode.addEventListener("click",functio);
+		btnNode.innerHTML = txtStr;
 	}
 	
-	showInfo(info){	
-        this.sendAsyncData("free-event-landing-page.html","event-info",info);
-	}
+	showInfo(infoStr)       {this.sendAsyncData("free-event-landing-page.html","event-info",infoStr);}
+	showPaymentInfo(infoStr){this.sendAsyncData("payment-info.html","event-name",infoStr);}
 	
-	showPaymentInfo(info){
-		this.sendAsyncData("payment-info.html","event-name",info);		
-	}
-	
-	sendAsyncData(htmlpage, dataTransmissionID, info){
-		let window2  = window.open(htmlpage);
-		let interval = setInterval(()=>{
+	sendAsyncData(htmlPathStr, transmissionNodeIdStr, infoStr){
+		let currWindow    = window.open(htmlPathStr);
+		let intervalIdNum = setInterval(()=>{
 			try{
-				let element = window2.document.getElementById(dataTransmissionID);  //this works ONLY if using http://, not file:// !!
-				if(element)
-					element.innerHTML = info;
-				else
-					clearInterval(interval);
+				let currNode = currWindow.document.getElementById(transmissionNodeIdStr);  //this works correctly in http, but in local testing only if CORS policies are turned off
+				if(currNode)   currNode.innerHTML = infoStr;
+				else           clearInterval(intervalIdNum);
 			}catch(typeError){}
 		}, 1000);			
 	}
+}
+
+
+class EventsViewerSimplified extends DataBaseViewer{
+	
+	/*public void*/ initialize(valuesObjArr){
+		this.ERROR_MESSAGEStr = "ERROR! Something went wrong during the generation of the node";
+		this.localeStringsObj = valuesObjArr[0];
+		this.todayDate = new Date();
+	}
+	
+    /*public String*/ translateDbEntryIntoHTML(dbEntryObj){
+		let htmlStr = this.ERROR_MESSAGEStr;
+		
+		try{
+			let browsablesNodeStrArr = SharedResourcesFactory.getBrowsablesNodeInnerHTML(dbEntryObj.imageDirs);
+			//let formButtonStr = `<button class="button-to-require-form common-container common-button">Clicca per caricare il form</button>`;
+					
+			let eventPartMode = SharedResourcesFactory.getEventOngoingState((this.todayDate <= super.castToDate(dbEntryObj.bookingDateLimit)));  //check if the event is still available
+			let paymentInfo   = SharedResourcesFactory.getPaymentInfo(dbEntryObj.cost,dbEntryObj.title); 
+			
+			 htmlStr = `
+			     <div>
+					 <h1 class="spawn-element">${dbEntryObj.title}</h1>					
+					 <div class="row">
+						<div class="col-sm-5 browsable-container spawn-element">
+							<div class="browsables common-overlaid-container add-min-vert-spacing">${browsablesNodeStrArr.join("")}</div>
+						</div>
+					    <div class="col-sm-7 spawn-element" style="text-align:left">
+						    <strong class="info-box">
+						        Tipo: ${dbEntryObj.lessonCycle} ${dbEntryObj.lessonMode}<br>
+								Orario: ${dbEntryObj.timeFrom}-${dbEntryObj.timeTo}<br>
+								Data: dal ${dbEntryObj.dateFrom} al ${dbEntryObj.dateTo}<br>
+							</strong><br>
+							${dbEntryObj.description}
+						</div>
+					 </div>	 
+                     <div>${eventPartMode}</div>
+					 <div>${paymentInfo}</div>
+                 </div>					 
+			`;		
+		}
+		catch(typeError){console.log(typeError)}
+        
+		return htmlStr;	
+	}
+	
+	/*public void*/ postProcessNode(node){
+		/*let buttonNode = node.querySelector(".button-to-require-form");
+		buttonNode.addEventListener("click",() => buttonNode.parentElement.classList.add("requires-form"));	*/	
+	}	
 }
